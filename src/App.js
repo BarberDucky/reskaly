@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import Subject from './components/Subject'
-import SubjectInput from './components/SubjectInput'
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Main from './pages/Main'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import './css/style.css'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Subject name="web"></Subject>
-        <Subject name="peb"></Subject>
-        <SubjectInput name="proba"></SubjectInput>
-        <Subject name="deb"></Subject>
+      <div className="App">
+      <Router>
+        <div>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route exact path="/" component={Main} />
+        </div>
+      </ Router>
       </div>
     );
   }

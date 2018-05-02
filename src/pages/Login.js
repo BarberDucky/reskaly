@@ -19,8 +19,8 @@ export default class Login extends Component {
                 <div className='loginPageDiv' onSubmit={(ev) => this.login(ev)}>
                     <h1>Skaly</h1>
                     <h2>Login</h2>
-                    <label>Username<input name='username' ref={(input) => this.username = input} /></label>
-                    <label>Password<input name='password' ref={(input) => this.password = input} /></label>
+                    <label><span>Username</span><input name='username' ref={(input) => this.username = input} /></label>
+                    <label><span>Password</span><input name='password' ref={(input) => this.password = input} /></label>
                     <button onClick={this.login}>LOGIN</button>
                     <button onClick={this.register}>REGISTER</button>
                 </div>

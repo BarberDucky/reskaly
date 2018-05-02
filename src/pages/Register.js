@@ -18,9 +18,9 @@ export default class Register extends Component {
                 <div className='regPageDiv'>
                     <h1>Skaly</h1>
                     <h2>Register</h2>
-                    <label>Username<input name='username' ref={(input) => this.username = input}/></label>
-                    <label>Password<input name='password' ref={(input) => this.password = input}/></label>
-                    <label>Are you a moderator?<input type='checkbox' /></label>
+                    <label><span>Username</span><input name='username' ref={(input) => this.username = input}/></label>
+                    <label><span>Password</span><input name='password' ref={(input) => this.password = input}/></label>
+                    <label className='checkbox'>Are you a moderator?<input type='checkbox' /></label>
                     <button onClick={this.register}>REGISTER</button>
                     <button onClick={this.back}>BACK</button>
                 </div>

@@ -11,8 +11,8 @@ export default class Scaler extends Component {
                 <Selector />
                 <Table />
                 <div className='pointDiv'>
-                    <label>Earned Points<input /></label>
-                    <label>Maximum possible points<input /></label>
+                    <label><span>Earned Points</span><input /></label>
+                    <label><span>Maximum possible points</span><input /></label>
                     <button>Submit</button>
                     <button>Cancel</button>
                 </div>

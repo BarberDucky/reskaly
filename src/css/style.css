@@ -1,19 +1,22 @@
-html, body, #root {
+html,
+body,
+#root {
     height: 100%;
     width: 100%;
 }
+
 .App {
     height: 100%;
     width: 100%;
-    margin: 0;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom right, #004ead, #157EFB);
 }
 
-.App > * {
-    margin: auto;
+.App>* {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 h1 {
@@ -22,7 +25,8 @@ h1 {
     font-size: 2.5em;
 }
 
-.loginPageDiv, .regPageDiv {
+.loginPageDiv,
+.regPageDiv {
     display: flex;
     flex-direction: column;
     width: 355px;
@@ -57,6 +61,16 @@ h1 {
     border-radius: 5px;
     width: 200px;
     font-family: 'Open Sans', sans-serif;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
 }
 
 input {
@@ -158,6 +172,7 @@ header h2 {
 img {
     max-width: 100%;
     max-height: 100%;
+    vertical-align: top;
 }
 
 .deleteBox {

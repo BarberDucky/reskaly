@@ -5,10 +5,10 @@ export default class Cell extends Component {
     }
     render() {
         return (
-            <td>
+            <div className='cell'>
                 <div className='upperText'>{this.props.upperText}</div>
                 <div className='lowerText'>{this.props.lowerText}</div>
-            </td>
+            </div>
         )
     }
 }

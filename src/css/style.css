@@ -139,6 +139,13 @@ header h2 {
     overflow-x: none;
     background-color: #F6F6F6;
     transition: left 1s;
+    flex-shrink: 0;
+}
+.sideList > * {
+    margin-top: 25px;
+}
+.sideList > *:last-child {
+    margin-bottom: 25px;
 }
 
 .contentHolder {
@@ -153,16 +160,24 @@ header h2 {
 }
 
 .selector {
+    height: 100%;
+    width: 250px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: none;
+    background-color: #F6F6F6;
+    transition: left 1s;
     box-shadow: 2px 2px 8px 2px #888888;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
 }
+.selector > * {
+    margin-top: 25px;
+}
+.selector > *:last-child {
+    margin-bottom: 25px;
+}
+
 
 .subjectDiv {
     background-color: #f7b10f;
@@ -173,7 +188,6 @@ header h2 {
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,10 +206,11 @@ img {
 .deleteBox {
     z-index: 99;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     height: 20px;
     width: 20px;
+    border-radius: 20px;
 }
 
 .subjectAddButton {
@@ -203,7 +218,6 @@ img {
     height: 50px;
     width: 50px;
     border-radius: 50px;
-    margin: 10px;
     border: 0;
     order: 99;
     flex-shrink: 0;
@@ -227,7 +241,6 @@ img {
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    margin: 10px;
     border: 2px solid grey;
     flex-shrink: 0;
 }
@@ -275,8 +288,9 @@ img {
     flex-grow: 1;
 }
 
-.scaler>* {
+.scaler > * {
     flex-shrink: 0;
+    margin-top: 25px;
 }
 
 .scalerContainer button {
@@ -310,29 +324,27 @@ img {
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
-table {
-    padding: 15px;
-    margin: 10px;
+.scale {
     width: fit-content;
+    border: 3px solid grey;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
 }
 
-td {
+.cell {
     position: relative;
     height: 70px;
     width: 70px;
-    border-radius: 10px;
-    border: 2px solid slateblue;
     text-align: center;
     font-size: 20px;
 }
 
-th {
-    width: 70px;
-    border: 2px;
-}
-
 .assignDiv {
-    margin: 5px;
+    margin-top: 25px;
     min-height: 80px;
     min-width: 80px;
     border-radius: 10px;
@@ -341,12 +353,13 @@ th {
     text-align: center;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    position: relative;
 }
 
 .pointDiv {
     border: 2px solid grey;
     border-radius: 5px;
-    margin: 5px;
     padding: 5px;
     display: flex;
     flex-direction: row;
@@ -406,6 +419,20 @@ th {
     justify-content: center;
     align-items: center;
     margin-left: 30px;
+}
+
+.selectorAddButton {
+    min-height: 50px;
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+    margin-top: 25px;
+    border: 2px dashed #004ead;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: #004ead;
+    font-size: 30px;
+    background-color: #F6F6F6;
 }
 
 @media (max-width: 1200px) {

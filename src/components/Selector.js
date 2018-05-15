@@ -16,6 +16,8 @@ export default class Selector extends Component {
 
         return (
             <div className='selector'>
+                <button className='selectorAddButton'> + </button>
+                {assignments}
                 {assignments}
             </div>
         )

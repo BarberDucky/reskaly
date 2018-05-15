@@ -9,6 +9,9 @@ export default class SelectorCell extends Component {
                 className='assignDiv'>
                 <div className='upperText'>{this.props.upperText}</div>
                 <div className='lowerText'>{this.props.lowerText}</div>
+                <div className="deleteBox">
+                    <img src="/img/delete.png" alt="Delete button" />
+                </div>
             </div>
         )
     }

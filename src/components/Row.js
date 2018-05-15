@@ -5,23 +5,18 @@ export default class Row extends Component {
         super()
     }
     render() {
-        let headers = []
-        let row = []
+        let cells = []
         for (let i = 0; i < 10; i++) {
-            headers.push(<th></th>)
-            row.push(<Cell />)
-        }
-        return (
-            <table>
-                <tbody>
-                    <tr>
-                        {headers}
-                    </tr>
-                    <tr>
-                        {row}
-                    </tr>
-                </tbody>
-            </table>
+            cells.push(<Cell/>)
+    }
+    return (
+        <div className='scale'>
+                {cells}
+                <div className="deleteBox">
+                    <img src="/img/delete.png" alt="Delete button" />
+                </div>
+        </div>
+    
         )
     }
 }

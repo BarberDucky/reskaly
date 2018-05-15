@@ -8,12 +8,6 @@ export default class Cell extends Component {
             <td>
                 <div className='upperText'>{this.props.upperText}</div>
                 <div className='lowerText'>{this.props.lowerText}</div>
-                <div className='controlsDiv'>
-                    <div className='enlargeControl'>
-                    </div>
-                    <div className='reduceControl'>
-                    </div>
-                </div>
             </td>
         )
     }

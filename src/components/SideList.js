@@ -11,7 +11,7 @@ export default class SideList extends Component {
             <Subject name = {subject} key={index}/>
         )
         return (
-            <div className="sideList">
+            <div className="sideList" style={{left: this.props.position}}>
                 {subjects}
 
                 <SubjectInput />

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
-export default class Row extends Component {
+import {connect} from 'react-redux'
+import { scaleDeleted } from '../store/actions';
+import { bindActionCreators } from 'redux';
+class Row extends Component {
     constructor() {
         super()
     }
@@ -12,7 +15,7 @@ export default class Row extends Component {
     return (
         <div className='scale'>
                 {cells}
-                <div className="deleteBox">
+                <div className="deleteBox" onClick={(ev) => {this.props.delete(this.props.listId); ev.stopPropagation()}}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
         </div>
@@ -20,3 +23,11 @@ export default class Row extends Component {
         )
     }
 }
+
+function mapDispatchToProps (dispatch) {
+    return bindActionCreators({
+        delete: scaleDeleted
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Row)

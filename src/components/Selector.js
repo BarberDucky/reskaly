@@ -1,43 +1,42 @@
 import React, { Component } from 'react'
-import Assignments from '../model/Assignments'
 import SelectorCell from './SelectorCell'
 import { bindActionCreators } from 'redux';
-import { boxAdded, boxDeleted } from '../store/actions';
-import {connect} from 'react-redux'
+import { boxSelected } from '../store/actions';
+import { connect } from 'react-redux'
+import SelectorDialog from './dialogs/selectorDialog'
 class Selector extends Component {
-    constructor() {
-        super()
-    }
     render() {
         let assignments = this.props.selector
             .map((assignment, index) => {
                 return (<SelectorCell
-                    color={assignment.color}
-                    upperText={assignment.text[0]}
-                    lowerText={assignment.text} 
+                    color={'black'}
+                    upperText={assignment.name[0]}
+                    lowerText={assignment.name}
                     listId={index}
-                    />)
+                    key={`selector${index}`}
+                    onClick={() => this.props.select({box: this.props.selector[index], index: index})} />
+                )
             })
-
+        
         return (
             <div className='selector'>
-                <button className='selectorAddButton' onClick={() => this.props.add({text:'Trt', color: 'black'})}> + </button>
-                {assignments}
+                <SelectorDialog />
+                <button className='selectorAddButton' onClick={() => this.props.select()}> + </button>
                 {assignments}
             </div>
         )
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
         selector: state.selector
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators ({
-        add: boxAdded,
+    return bindActionCreators({
+        select: boxSelected
     }, dispatch)
 }
 

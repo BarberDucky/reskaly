@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux'
-import { boxDeleted, boxSelected } from '../store/actions';
+import { boxDeleted } from '../store/actions';
 class SelectorCell extends Component {
-    constructor() {
-        super()
-    }
     render() {
         return (
             <div style={{color: this.props.color}} 
                 className='assignDiv'
-                onClick={() => this.props.select(this.props.listId)}>
+                onClick={this.props.onClick}>
                 <div className='upperText'>{this.props.upperText}</div>
                 <div className='lowerText'>{this.props.lowerText}</div>
                 <div 
@@ -25,8 +22,7 @@ class SelectorCell extends Component {
 
 function mapDispatchToProps (dispatch) {
     return bindActionCreators({
-        delete: boxDeleted,
-        select: boxSelected
+        delete: boxDeleted
     }, dispatch)
 }
 

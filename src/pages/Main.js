@@ -31,7 +31,7 @@ export default class Main extends Component {
             return <Redirect push to='/login' />
         } else {
             return (
-                <div class='mainContainer'>
+                <div className='mainContainer'>
                     <header>
                         <div className='menuWrapper'>
                             <img className='headerMenu' src='/img/menu.png' alt='menu' onClick={() => this.toggleSide()}/>

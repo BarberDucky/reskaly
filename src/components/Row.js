@@ -4,13 +4,10 @@ import {connect} from 'react-redux'
 import { scaleDeleted } from '../store/actions';
 import { bindActionCreators } from 'redux';
 class Row extends Component {
-    constructor() {
-        super()
-    }
     render() {
         let cells = []
         for (let i = 0; i < 10; i++) {
-            cells.push(<Cell/>)
+            cells.push(<Cell key={`cell${i}`}/>)
     }
     return (
         <div className='scale'>

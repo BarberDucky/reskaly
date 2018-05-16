@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import Row from './Row'
-import {FloatingActionButton} from 'material-ui'
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux'
 import { scaleAdded } from '../store/actions';
 class Scaler extends Component {
-    constructor() {
-        super()
-    }
     render() {
         let rows = this.props.scales
             .map((element, index) => 
-                <Row listId={index}/>
+                <Row listId={index} key={`scale${index}`}/>
             )
 
         return (

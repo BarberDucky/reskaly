@@ -1,26 +1,30 @@
 import * as actions from '../actions/index'
 
-const initialState = [{
-    name: 'web'
-},
-{
-    name: 'peb'
-},
-{
-    name: 'deb'
-}
-]
+const initialState = []
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case actions.SUBJECT_ADDED:
+        case actions.SUBJECT_SUBMIT:
             {
-                return [...state, action.payload]
+                return [action.payload, ...state]
+            }
+        case actions.SUBJECT_UPDATED: 
+            {
+                return state.map((element, index) => {
+                    if(index === action.payload.index) {
+                        return action.payload.subject
+                    } else {
+                        return element
+                    }
+                })
             }
         case actions.SUBJECT_DELETED:
             {   
-                return state.filter(element=> element.name != state[action.payload].name)
+                return state.filter((element, index) => index !== action.payload)
             }
+        default: 
+        {
+            return state
+        }
     }
-    return state
 }

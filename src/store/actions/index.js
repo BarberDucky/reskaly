@@ -1,12 +1,18 @@
 export const USER_LOAD = 'USER_LOAD'
 export const SUBJECT_SELECTED = 'SUBJECT_SELECTED'
 export const SUBJECT_ADDED = 'SUBJECT_ADDED'
+export const SUBJECT_DESELECTED = 'SUBJECT_DESELECTED'
+export const SUBJECT_SUBMIT = 'SUBJECT_SUBMIT'
+export const SUBJECT_UPDATED = 'SUBJECT_UPDATED'
 export const SUBJECT_DELETED = 'SUBJECT_DELETED'
 export const SCALE_ADDED = 'SCALE_ADDED'
 export const SCALE_DELETED = 'SCALE_DELETED'
 export const BOX_ADDED = 'BOX_ADDED'
 export const BOX_SELECTED = 'BOX_SELECTED'
 export const BOX_DELETED = 'BOX_DELETED'
+export const BOX_DESELECTED = 'BOX_DESELECTED'
+export const BOX_SUBMIT = 'BOX_SUBMIT'
+export const BOX_UPDATE = 'BOX_UPDATE'
 
 export function userLoad(userData) {
     return {
@@ -31,6 +37,27 @@ export function subjectDeleted(subjectName) {
 export function subjectAdded(subject) {
     return {
         type: SUBJECT_ADDED,
+        payload: subject
+    }
+}
+
+export function subjectDeselected(subject) {
+    return {
+        type: SUBJECT_DESELECTED,
+        payload: subject
+    }
+}
+
+export function subjectUpdated(subject) {
+    return {
+        type: SUBJECT_UPDATED,
+        payload: subject
+    }
+}
+
+export function subjectSubmit(subject) {
+    return {
+        type: SUBJECT_SUBMIT,
         payload: subject
     }
 }
@@ -65,6 +92,27 @@ export function boxDeleted(box) {
 export function boxAdded(box) {
     return {
         type: BOX_ADDED,
+        payload: box
+    }
+}
+
+export function boxDeselected(box) {
+    return {
+        type: BOX_DESELECTED,
+        payload: box
+    }
+}
+
+export function boxSubmit(box) {
+    return {
+        type: BOX_SUBMIT,
+        payload: box
+    }
+}
+
+export function boxUpdate(box) {
+    return {
+        type: BOX_UPDATE,
         payload: box
     }
 }

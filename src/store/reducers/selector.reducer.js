@@ -1,41 +1,28 @@
 import * as actions from '../actions/index'
 
-const initialState = [{
-        text: 'Kolokv.',
-        color: '#b200ff'
-    },
-    {
-        text: 'Ispit',
-        color: 'green'
-    },
-    {
-        text: 'Lab',
-        color: 'red'
-    },
-    {
-        text: 'Projekat',
-        color: 'orange'
-    },
-    {
-        text: 'Domaci',
-        color: '#683b11'
-    },
-    {
-        text: 'Ostalo',
-        color: 'blue'
-    }
-]
-
-export default function (state = initialState, action) {
+export default function (state = [], action) {
     switch (action.type) {
-        case actions.BOX_ADDED:
+        case actions.BOX_SUBMIT:
             {
                 return [action.payload, ...state]
             }
+        case actions.BOX_UPDATE:
+            {
+                return state.map((element, index) => {
+                    if (index === action.payload.index) {
+                        return action.payload.box
+                    } else {
+                        return element
+                    }
+                })
+            }
         case actions.BOX_DELETED:
             {
-                return state.filter(element => element.text != state[action.payload].text)
+                return state.filter((element, index) => index !== action.payload)
             }
+        default: 
+        {
+            return state
+        }
     }
-    return state
 }

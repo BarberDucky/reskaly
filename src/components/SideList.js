@@ -1,21 +1,25 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {subjectAdded, subjectSelected, subjectDeleted} from '../store/actions/index'
+import { subjectSubmit, subjectSelected, subjectAdded} from '../store/actions/index'
 import Subject from './Subject'
-import SubjectInput from './SubjectInput'
+import SubjectDialog from './dialogs/SubjectDialog'
 class SideList extends Component {
     render() {
         const subjects = this.props.subjects.map((subject, index) =>
-            <Subject name = {subject.name} key={index} listId={index}/>
+            <Subject 
+                name = {subject.name} 
+                key={`subject${index}`} 
+                listId={index} 
+                onClick={() => this.props.select(index)}
+                onDoubleClick={() => this.props.add({subject: this.props.subjects[index], index: index})}
+                selected={this.props.selected === index}/>
         )
         return (
             <div className="sideList" style={{left: this.props.position}}>
+                <SubjectDialog />
+                <button className='subjectAddButton' onClick={() => this.props.add()}> + </button>
                 {subjects}
-
-                <SubjectInput />
-                
-                <button className='subjectAddButton' onClick={() => this.props.add({name: 'trt'})}> + </button>
             </div>
         )
     }
@@ -23,12 +27,15 @@ class SideList extends Component {
     
 function mapStateToProps(state) {
     return {
-        subjects: state.subjects
+        subjects: state.subjects,
+        selected: state.subjectSelected,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        submit: subjectSubmit,
+        select: subjectSelected,
         add: subjectAdded
     }, dispatch)
 }

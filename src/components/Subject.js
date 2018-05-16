@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {subjectAdded, subjectSelected, subjectDeleted} from '../store/actions/index'
+import {subjectDeleted} from '../store/actions/index'
 class Subject extends Component {
     render() {
         return (
-            <div className="subjectDiv" onClick={() => this.props.select(this.props.listId)}>
+            <div 
+                className="subjectDiv" 
+                onClick={this.props.onClick}
+                onDoubleClick={this.props.onDoubleClick}
+                style={{border: this.props.selected ? '2px solid black' : 'none'}}>
                 <label>
                     {this.props.name}
                 </label>
@@ -21,7 +25,6 @@ class Subject extends Component {
 function mapDispatchToProps (dispatch) {
     return bindActionCreators({
         delete: subjectDeleted,
-        select: subjectSelected
     }, dispatch)
 }
 

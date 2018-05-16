@@ -215,17 +215,20 @@ img {
 }
 
 .subjectAddButton {
-    min-height: 50px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
-    border: 0;
-    order: 99;
-    flex-shrink: 0;
+    background-color: inherit;
     cursor: pointer;
-    background-color: #004ead;
+    min-height: 200px;
+    flex: 0 0 200px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: 2px dashed #004ead;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 30px;
-    color: white;
+    color: #004ead;
 }
 
 .text {
@@ -434,6 +437,10 @@ img {
     color: #004ead;
     font-size: 30px;
     background-color: #F6F6F6;
+}
+
+.dialogInput {
+    margin: 10px;
 }
 
 @media (max-width: 1200px) {

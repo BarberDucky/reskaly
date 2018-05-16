@@ -48,6 +48,9 @@ export default function (state = initialState, action) {
                 console.log(action.payload)
                 return state
             }
+        default: 
+        {
+            return state
+        }
     }
-    return state
 }

@@ -4,7 +4,7 @@ export default function (state = [], action) {
     switch (action.type) {
         case actions.BOX_SUBMIT:
             {
-                return [action.payload, ...state]
+                return [...state, action.payload]
             }
         case actions.BOX_UPDATE:
             {

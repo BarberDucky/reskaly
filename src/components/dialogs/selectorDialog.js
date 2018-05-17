@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Dialog, TextField, FlatButton } from 'material-ui';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { boxSelected, boxDeselected, boxSubmit, boxUpdate } from '../../store/actions/index'
+import { boxSelected, boxDeselected, boxSubmit, boxUpdate, cellUpdated } from '../../store/actions/index'
 
 class SelectorDialog extends Component {
     constructor() {
@@ -18,8 +18,9 @@ class SelectorDialog extends Component {
                 num: ev.target.elements.num.value,
                 part: ev.target.elements.part.value
             }
-            console.log(box)
             if (this.props.index !== -1) {
+                console.log(this.props.box.name, box.name)
+                this.props.updateCells(this.props.box.name, box.name)
                 this.props.update({ box: box, index: this.props.index })
             } else {
                 this.props.submit(box)
@@ -85,7 +86,8 @@ function mapDispatchToProps(dispatch) {
         select: boxSelected,
         deselect: boxDeselected,
         submit: boxSubmit,
-        update: boxUpdate
+        update: boxUpdate,
+        updateCells: cellUpdated
     }, dispatch)
 }
 

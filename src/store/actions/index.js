@@ -7,6 +7,9 @@ export const SUBJECT_UPDATED = 'SUBJECT_UPDATED'
 export const SUBJECT_DELETED = 'SUBJECT_DELETED'
 export const SCALE_ADDED = 'SCALE_ADDED'
 export const SCALE_DELETED = 'SCALE_DELETED'
+export const CELL_ADDED = 'CELL_ADDED'
+export const CELL_DELETED = 'CELL_DELETED'
+export const CELL_UPDATED = 'CELL_UPDATED'
 export const BOX_ADDED = 'BOX_ADDED'
 export const BOX_SELECTED = 'BOX_SELECTED'
 export const BOX_DELETED = 'BOX_DELETED'
@@ -73,6 +76,36 @@ export function scaleDeleted(scale) {
     return {
         type: SCALE_DELETED,
         payload: scale
+    }
+}
+
+export function cellAdded(cellId, scaleId) {
+    return {
+        type: CELL_ADDED,
+        payload: {
+            cellId: cellId,
+            scaleId: scaleId
+        }
+    }
+}
+
+export function cellDeleted(cellId, scaleId) {
+    return {
+        type: CELL_DELETED,
+        payload: {
+            cellId: cellId,
+            scaleId: scaleId
+        }
+    }
+}
+
+export function cellUpdated(oldId, newId) {
+    return {
+        type: CELL_UPDATED,
+        payload: {
+            oldId: oldId,
+            newId: newId
+        }
     }
 }
 

@@ -3,6 +3,7 @@ import Row from './Row'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { scaleAdded } from '../store/actions';
+import CellDialog from './dialogs/CellDialog';
 class Scaler extends Component {
     render() {
         let rows = this.props.scales
@@ -11,6 +12,7 @@ class Scaler extends Component {
             )
         return (
             <div className='scalerContainer'>
+            <CellDialog />
                 <div className='scaler'>
                     {rows}
                 </div>

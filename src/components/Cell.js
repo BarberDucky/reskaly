@@ -5,9 +5,13 @@ import { cellDeleted } from '../store/actions';
 class Cell extends Component {
     render() {
         return (
-            <div className='cell' style={{width: `${this.props.width}%`}}>
-                <div className='upperText'>{this.props.name[0]}</div>
-                <div className='lowerText'>{this.props.name}</div>
+            <div 
+                className='cell' 
+                style={{width: `${this.props.width}%`}}
+                onClick={this.props.onClick}
+            >
+                <div className='upperText'>{this.props.isModerator ? this.props.name[0] : this.props.name}</div>
+                <div className='lowerText'>{this.props.isModerator ? this.props.name : this.props.points}</div>
                 <div 
                     className="deleteBox" 
                     onClick={(ev) => {

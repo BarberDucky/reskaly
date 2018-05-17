@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
 import { connect } from 'react-redux'
-import { scaleDeleted, cellAdded, cellDeleted } from '../store/actions';
+import { scaleDeleted, cellAdded, cellDeleted, cellSelected } from '../store/actions';
 import { bindActionCreators } from 'redux';
 class Row extends Component {
     render() {
         let cells = this.props.scales
             .find((element, index) => index === this.props.listId)
             .map((element, index) => {
-                let box = this.props.selector.find(cell => cell.name === element)
+                let box = this.props.selector.find(cell => cell.name === element.name)
                 return <Cell
                     key={`cell${this.props.listId},${index}`}
                     name={box.name}
+                    points={element.points}
                     listId={index}
                     parentId={this.props.listId}
-                    width={box.part} />
+                    width={box.part}
+                    onClick={() => {
+                        if (!this.props.isModerator) {
+                            this.props.cellSelected({cellId: box.name, points: element.points})
+                        }
+                    }}
+                    />
             })
         return (
             <div
@@ -58,7 +65,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         delete: scaleDeleted,
         add: cellAdded,
-        deleteCell: cellDeleted
+        deleteCell: cellDeleted,
+        cellSelected: cellSelected
     }, dispatch)
 }
 

@@ -6,6 +6,7 @@ import scalesReducer from './scales.reducer';
 import boxSelectReducer from './boxSelect.reducer';
 import subjectSelectReducer from './subjectSelect.reducer';
 import subjectCreateReducer from './subjectCreate.reducer';
+import cellSelectReducer from './cellSelect.reducer';
 
 const rootReducer = combineReducers({
     subjects: subjectReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     scales: scalesReducer,
     boxSelected: boxSelectReducer,
     subjectSelected: subjectSelectReducer,
-    subjectCreate: subjectCreateReducer
+    subjectCreate: subjectCreateReducer,
+    cellSelected: cellSelectReducer
 })
 
 export default rootReducer

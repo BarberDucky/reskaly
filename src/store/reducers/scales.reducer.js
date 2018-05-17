@@ -1,6 +1,8 @@
 import * as actions from '../actions/index'
 
-export default function (state = [], action) {
+export default function (state = [
+    [{name:"trt", points: 100}]
+], action) {
     switch (action.type) {
         case actions.SCALE_ADDED:
             {
@@ -14,7 +16,7 @@ export default function (state = [], action) {
             {
                 return state.map((element, index) => {
                     if (index === action.payload.scaleId) {
-                        return [...element, action.payload.cellId]
+                        return [...element, {name: action.payload.cellId, points: 0}]
                     } else {
                         return element
                     }
@@ -47,6 +49,18 @@ export default function (state = [], action) {
                         return array.filter(element => element !== action.payload.oldId)
                     })
                 }
+            }
+        case actions.CELL_SUBMIT:
+            {
+                return state.map(array => {
+                    return array.map(element => {
+                        if (element.name === action.payload.cellId) {
+                            return {name: element.name, points: action.payload.points}
+                        } else {
+                            return element
+                        }
+                    })
+                })
             }
         default:
             {

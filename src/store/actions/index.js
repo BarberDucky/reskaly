@@ -10,6 +10,9 @@ export const SCALE_DELETED = 'SCALE_DELETED'
 export const CELL_ADDED = 'CELL_ADDED'
 export const CELL_DELETED = 'CELL_DELETED'
 export const CELL_UPDATED = 'CELL_UPDATED'
+export const CELL_SELECTED = 'CELL_SELECTED'
+export const CELL_DESELECTED = 'CELL_DESELECTED'
+export const CELL_SUBMIT = 'CELL_SUBMIT'
 export const BOX_ADDED = 'BOX_ADDED'
 export const BOX_SELECTED = 'BOX_SELECTED'
 export const BOX_DELETED = 'BOX_DELETED'
@@ -106,6 +109,27 @@ export function cellUpdated(oldId, newId) {
             oldId: oldId,
             newId: newId
         }
+    }
+}
+
+export function cellSelected(cell) {
+    return {
+        type: CELL_SELECTED,
+        payload: cell
+    }
+}
+
+export function cellDeselected(cell) {
+    return {
+        type: CELL_DESELECTED,
+        payload: cell
+    }
+}
+
+export function cellSubmit(cell) {
+    return {
+        type: CELL_SUBMIT,
+        payload: cell
     }
 }
 

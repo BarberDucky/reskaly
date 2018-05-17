@@ -8,7 +8,7 @@ class SelectorCell extends Component {
             <div style={{color: this.props.color}} 
                 className='assignDiv'
                 onClick={this.props.onClick}
-                draggable={true}
+                draggable={this.props.isModerator}
                 onDragStart={(ev) => ev.dataTransfer.setData('application/json', JSON.stringify(this.props.lowerText))}>
                 
                 <div className='upperText'>{this.props.upperText}</div>
@@ -16,9 +16,12 @@ class SelectorCell extends Component {
                 <div 
                     className="deleteBox"
                     onClick={(ev) => {
-                        this.props.delete(this.props.listId);
-                        this.props.updateCells(this.props.lowerText) 
-                        ev.stopPropagation()}}>
+                        if (this.props.isModerator) {
+                            this.props.delete(this.props.listId);
+                            this.props.updateCells(this.props.lowerText) 
+                            ev.stopPropagation()}
+                        }
+                    }>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>
@@ -28,7 +31,8 @@ class SelectorCell extends Component {
 
 function mapStateToProps (state) {
     return {
-        selector: state.selector
+        selector: state.selector,
+        isModerator: state.user.isModerator
     }
 }
 

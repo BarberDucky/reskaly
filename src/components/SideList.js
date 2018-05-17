@@ -12,7 +12,11 @@ class SideList extends Component {
                 key={`subject${index}`} 
                 listId={index} 
                 onClick={() => this.props.select(index)}
-                onDoubleClick={() => this.props.add({subject: this.props.subjects[index], index: index})}
+                onDoubleClick={() => {
+                    if (this.props.isModerator) {
+                        this.props.add({subject: this.props.subjects[index], index: index})
+                    }
+                }}
                 selected={this.props.selected === index}/>
         )
         return (
@@ -24,11 +28,12 @@ class SideList extends Component {
         )
     }
 }
-    
+
 function mapStateToProps(state) {
     return {
         subjects: state.subjects,
         selected: state.subjectSelected,
+        isModerator: state.user.isModerator
     }
 }
 

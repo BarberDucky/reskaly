@@ -1,37 +1,33 @@
 import React, { Component } from 'react'
 import Row from './Row'
 import { bindActionCreators } from 'redux';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { scaleAdded } from '../store/actions';
 class Scaler extends Component {
     render() {
         let rows = this.props.scales
-            .map((element, index) => 
-                <Row listId={index} key={`scale${index}`}/>
+            .map((element, index) =>
+                <Row listId={index} key={`scale${index}`} />
             )
-
         return (
             <div className='scalerContainer'>
                 <div className='scaler'>
                     {rows}
-                    <div className='pointDiv'>
-                        <label><span>Earned Points</span><input /></label>
-                        <label><span>Maximum possible points</span><input /></label>
-                        <button>Submit</button>
-                        <button>Cancel</button>
-                    </div>
-                    <span>Osvojeni poeni:</span>
-                    <button>Calculate</button>
                 </div>
-                <button className='scaleAddButton' onClick={() => {this.props.add({}); console.log(this.props.scales)}}>+</button>
+                <button 
+                    hidden={!this.props.isModerator || this.props.subjectSelected === -1}
+                    className='scaleAddButton'
+                    onClick={() => this.props.add({})}>+</button>
             </div>
         )
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        scales: state.scales
+        scales: state.scales,
+        isModerator: state.user.isModerator,
+        subjectSelected: state.subjectSelected
     }
 }
 

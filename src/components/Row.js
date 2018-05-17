@@ -13,20 +13,31 @@ class Row extends Component {
                     key={`cell${this.props.listId},${index}`}
                     name={box.name}
                     listId={index}
-                    parentId={this.props.listId} 
-                    width={box.part}/>
+                    parentId={this.props.listId}
+                    width={box.part} />
             })
         return (
             <div
                 className='scale'
-                onDragOver={ev => ev.preventDefault()}
+                onDragOver={(ev) => {
+                    if (this.props.isModerator) {
+                        ev.preventDefault()
+                    }
+                }}
                 onDrop={(ev) => {
                     ev.preventDefault()
                     const selectorId = JSON.parse(ev.dataTransfer.getData('application/json'))
                     this.props.add(selectorId, this.props.listId)
                 }}>
                 {cells}
-                <div className="deleteBox" onClick={(ev) => { this.props.delete(this.props.listId); ev.stopPropagation() }}>
+                <div
+                    className="deleteBox"
+                    onClick={(ev) => {
+                        if (this.props.isModerator) {
+                            this.props.delete(this.props.listId)
+                            ev.stopPropagation()
+                        }
+                    }}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>
@@ -38,7 +49,8 @@ class Row extends Component {
 function mapStateToProps(state) {
     return {
         scales: state.scales,
-        selector: state.selector
+        selector: state.selector,
+        isModerator: state.user.isModerator
     }
 }
 

@@ -14,14 +14,24 @@ class Selector extends Component {
                     lowerText={assignment.name}
                     listId={index}
                     key={`selector${index}`}
-                    onClick={() => this.props.select({box: this.props.selector[index], index: index})} />
+                    onClick={() => {
+                        if (this.props.isModerator) {
+                            this.props.select({box: this.props.selector[index], index: index})
+                        }
+                    }} />
                 )
             })
         
         return (
             <div className='selector'>
                 <SelectorDialog />
-                <button className='selectorAddButton' onClick={() => this.props.select()}> + </button>
+                <button 
+                    hidden={!this.props.isModerator}
+                    disabled={this.props.subjectSelected === -1}
+                    className='selectorAddButton' 
+                    onClick={() => {
+                        this.props.select()
+                    }}> + </button>
                 {assignments}
             </div>
         )
@@ -30,7 +40,9 @@ class Selector extends Component {
 
 function mapStateToProps(state) {
     return {
-        selector: state.selector
+        selector: state.selector,
+        isModerator: state.user.isModerator,
+        subjectSelected: state.subjectSelected
     }
 }
 

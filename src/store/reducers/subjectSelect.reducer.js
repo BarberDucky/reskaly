@@ -9,11 +9,11 @@ export default function (state = -1, action) {
             }
         case actions.SUBJECT_DESELECTED:
             {
-                return -1
+                return state
             }
         case actions.SUBJECT_DELETED:
             {
-                return -1
+                return action.payload === state ? -1 : 0
             }
         case actions.SUBJECT_SUBMIT:
             {

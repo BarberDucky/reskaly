@@ -8,11 +8,24 @@ class Cell extends Component {
             <div className='cell' style={{width: `${this.props.width}%`}}>
                 <div className='upperText'>{this.props.name[0]}</div>
                 <div className='lowerText'>{this.props.name}</div>
-                <div className="deleteBox" onClick={(ev) => {this.props.delete(this.props.listId, this.props.parentId); ev.stopPropagation()}}>
+                <div 
+                    className="deleteBox" 
+                    onClick={(ev) => {
+                        if (this.props.isModerator) {
+                            this.props.delete(this.props.listId, this.props.parentId); 
+                            ev.stopPropagation()
+                        }
+                    }}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>
         )
+    }
+}
+
+function mapStateToProps (state) {
+    return {
+        isModerator: state.user.isModerator
     }
 }
 
@@ -22,4 +35,4 @@ function mapDispatchToProps(dispatch){
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Cell)
+export default connect(mapStateToProps, mapDispatchToProps)(Cell)

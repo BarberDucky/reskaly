@@ -284,17 +284,41 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 10px;
     background-color: white;
     margin: 50px;
     overflow-y: scroll;
     flex-grow: 1;
+    position: relative;
+}
+
+.scaler::-webkit-scrollbar-track
+{
+    margin: 17px;
+	border-radius: 15px;
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+.scaler::-webkit-scrollbar
+{
+	width: 5px;
+    background-color:transparent;
+}
+
+.scaler::-webkit-scrollbar-thumb
+{
+	border-radius: 15px;
+	background-color: grey;
 }
 
 .scaler > * {
     flex-shrink: 0;
     margin-top: 25px;
+}
+
+.scaler > * + *:last-child {
+    margin-bottom: 25px;
 }
 
 .scalerContainer button {
@@ -324,7 +348,7 @@ img {
     padding: 0;
     position: absolute;
     bottom: 50px;
-    right: 60px;
+    right: 50px;
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -443,6 +467,11 @@ img {
     color: #004ead;
     font-size: 30px;
     background-color: #F6F6F6;
+}
+
+.selectorAddButton:disabled {
+    color: grey;
+    border-color: grey;
 }
 
 .dialogInput {

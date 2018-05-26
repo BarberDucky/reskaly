@@ -7,6 +7,7 @@ import boxSelectReducer from './boxSelect.reducer';
 import subjectSelectReducer from './subjectSelect.reducer';
 import subjectCreateReducer from './subjectCreate.reducer';
 import cellSelectReducer from './cellSelect.reducer';
+import pageReducer from './page.reducer';
 
 const rootReducer = combineReducers({
     subjects: subjectReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     boxSelected: boxSelectReducer,
     subjectSelected: subjectSelectReducer,
     subjectCreate: subjectCreateReducer,
-    cellSelected: cellSelectReducer
+    cellSelected: cellSelectReducer,
+    page: pageReducer
 })
 
 export default rootReducer

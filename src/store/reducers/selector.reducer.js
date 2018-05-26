@@ -1,7 +1,11 @@
 import * as actions from '../actions/index'
 
-export default function (state = [{name: 'trt', part: 30, num: 4, max: 40}], action) {
+export default function (state = [], action) {
     switch (action.type) {
+        case actions.SELECTOR_LOADED: 
+            {
+                return action.payload
+            }
         case actions.BOX_SUBMIT:
             {
                 return [...state, action.payload]

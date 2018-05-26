@@ -19,6 +19,14 @@ export const BOX_DELETED = 'BOX_DELETED'
 export const BOX_DESELECTED = 'BOX_DESELECTED'
 export const BOX_SUBMIT = 'BOX_SUBMIT'
 export const BOX_UPDATE = 'BOX_UPDATE'
+export const SELECTOR_LOADED = 'SELECTOR_LOADED'
+export const SELECTOR_REQUESTED = 'SELECTOR_REQUESTED'
+export const SCALES_LOADED = 'SCALES_LOADED'
+export const SCALES_REQUESTED = 'SCALES_REQUESTED'
+export const SELECTOR_UPDATED = 'SELECTOR_UPDATED'
+export const AUTH_REQ = 'AUTH_REQ'
+export const AUTH_SUCC = 'AUTH_SUCC'
+export const AUTH_FAIL = 'AUTH_FAIL'
 
 export function userLoad(userData) {
     return {
@@ -171,5 +179,65 @@ export function boxUpdate(box) {
     return {
         type: BOX_UPDATE,
         payload: box
+    }
+}
+
+export function selectorLoaded(selector) {
+    return {
+        type: SELECTOR_LOADED,
+        payload: selector
+    }
+}
+
+export function selectorRequested(name) {
+    return {
+        type: SELECTOR_REQUESTED,
+        payload: name
+    }
+}
+
+export function scalesLoaded(selector) {
+    return {
+        type: SCALES_LOADED,
+        payload: selector
+    }
+}
+
+export function scalesRequested(name) {
+    return {
+        type: SCALES_REQUESTED,
+        payload: name
+    }
+}
+
+export function selectorUpdated(newSelector) {
+    console.log('new selector', newSelector)
+    return {
+        type: SELECTOR_UPDATED,
+        payload: newSelector
+    }
+}
+
+export function authReq(username, password) {
+    return {
+        type: AUTH_REQ,
+        payload: {
+            username: username,
+            password: password
+        }
+    }
+}
+
+export function authSucc(user) {
+    return {
+        type: AUTH_SUCC,
+        payload: user
+    }
+}
+
+export function authFail() {
+    return {
+        type: AUTH_FAIL,
+        payload: null
     }
 }

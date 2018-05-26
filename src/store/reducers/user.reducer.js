@@ -1,6 +1,15 @@
 import * as actions from '../actions/index'
 
-const initialState = {isModerator: true}
+const initialState = {
+    username: 'damjan',
+    password: 'asd',
+    isModerator: true,
+    subjects: [
+        {
+            name: 'trt'
+        }
+    ]
+}
 
 export default function (state = initialState, action) {
     switch (action.type) {

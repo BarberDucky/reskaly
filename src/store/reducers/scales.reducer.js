@@ -1,9 +1,11 @@
 import * as actions from '../actions/index'
 
-export default function (state = [
-    [{name:"trt", points: 100}]
-], action) {
+export default function (state = [], action) {
     switch (action.type) {
+        case actions.SCALES_LOADED:    
+        {
+            return action.payload
+        }
         case actions.SCALE_ADDED:
             {
                 return [...state, []]
@@ -35,18 +37,21 @@ export default function (state = [
         case actions.CELL_UPDATED:
             {
                 if (action.payload.newId) {
-                    return state.map(array => {
+                    let newState =  state.map(array => {
                         return array.map(element => {
-                            if (element === action.payload.oldId) {
-                                return action.payload.newId
+                            if (element.name === action.payload.oldId) {
+                                return {name: action.payload.newId, points: 0}
                             } else {
                                 return element
                             }
                         })
                     })
+                    console.log(newState)
+                    return newState
                 } else {
+                    console.log(state)
                     return state.map(array => {
-                        return array.filter(element => element !== action.payload.oldId)
+                        return array.filter(element => element.name !== action.payload.oldId)
                     })
                 }
             }

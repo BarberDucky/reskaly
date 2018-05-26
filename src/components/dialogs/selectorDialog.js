@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Dialog, TextField, FlatButton } from 'material-ui';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { boxSelected, boxDeselected, boxSubmit, boxUpdate, cellUpdated } from '../../store/actions/index'
+import { boxSelected, boxDeselected, boxSubmit, boxUpdate, cellUpdated, subjectUpdated, selectorUpdated } from '../../store/actions/index'
 
 class SelectorDialog extends Component {
     constructor() {
@@ -20,10 +20,14 @@ class SelectorDialog extends Component {
             }
             if (this.props.index !== -1) {
                 console.log(this.props.box.name, box.name)
-                this.props.updateCells(this.props.box.name, box.name)
+                
                 this.props.update({ box: box, index: this.props.index })
+                this.props.updateCells(this.props.box.name, box.name)
+                this.props.updateSelector(this.props.selector)
             } else {
                 this.props.submit(box)
+                let subject = this.props.subjects[this.props.selectedSubject]
+                this.props.updateSubject({subject: {name: subject.name, selector: [...subject.selector, box]}, index: this.props.selectedSubject})
             }
         }
         return (
@@ -77,7 +81,10 @@ function mapStateToProps(state) {
     return {
         box: state.boxSelected.box,
         index: state.boxSelected.index,
-        selected: state.boxSelected.selected
+        selected: state.boxSelected.selected,
+        selectedSubject: state.subjectSelected,
+        subjects: state.subjects,
+        selector: state.selector
     }
 }
 
@@ -87,7 +94,9 @@ function mapDispatchToProps(dispatch) {
         deselect: boxDeselected,
         submit: boxSubmit,
         update: boxUpdate,
-        updateCells: cellUpdated
+        updateCells: cellUpdated,
+        updateSubject: subjectUpdated,
+        updateSelector: selectorUpdated
     }, dispatch)
 }
 

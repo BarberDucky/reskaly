@@ -13,7 +13,8 @@ class SelectorDialog extends Component {
         let handleSubmit = (ev) => {
             ev.preventDefault()
             let subject = {
-                name: ev.target.elements.name.value
+                name: ev.target.elements.name.value,
+                selector: []
             }
             console.log(subject)
             if (this.props.index !== -1) {

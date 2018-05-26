@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-export default class Login extends Component {
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { authReq } from '../store/actions';
+class Login extends Component {
     constructor() {
         super()
         this.username = ''
@@ -21,7 +24,7 @@ export default class Login extends Component {
                     <h2>Login</h2>
                     <label><span>Username</span><input name='username' ref={(input) => this.username = input} /></label>
                     <label><span>Password</span><input name='password' ref={(input) => this.password = input} /></label>
-                    <button onClick={this.login}>LOGIN</button>
+                    <button onClick={() => this.props.login(this.username.value, this.password.value)}>LOGIN</button>
                     <button onClick={this.register}>REGISTER</button>
                 </div>
             )
@@ -38,3 +41,12 @@ export default class Login extends Component {
         this.setState({ redirect: 'register' })
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        login: authReq
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Login)
+

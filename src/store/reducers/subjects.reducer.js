@@ -20,9 +20,9 @@ export default function (state = null, action) {
                     }
                 })
             }
-        case actions.SUBJECT_DELETED:
+        case actions.DELETE_SUBJECT:
             {   
-                return state.filter((element, index) => index !== action.payload)
+                return state.filter(element => element.id !== action.payload.subject.id)
             }
         default: 
         {

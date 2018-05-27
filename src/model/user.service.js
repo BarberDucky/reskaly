@@ -3,7 +3,6 @@ export const getUser = async (username) => {
     const data = await res.json()
     return data[0]
 }
-
 export const checkUserExists = async (username) => {
     const res = await fetch(`http://localhost:3001/users?id=${username}`)
     const data = await res.json()
@@ -13,7 +12,6 @@ export const checkUserExists = async (username) => {
         return false
     }
 }
-
 export const postUser = async (username, password, isModerator) => {
     const check = await checkUserExists(username)
     if (!check && password !== "") {
@@ -29,7 +27,6 @@ export const postUser = async (username, password, isModerator) => {
         return false
     }
 }
-
 export const putUser = async (user) => {
     await fetch(`http://localhost:3001/users/${user.id}`, {
             method: 'PUT',

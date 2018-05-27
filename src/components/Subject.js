@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {subjectDeleted} from '../store/actions/index'
+import {deleteSubject} from '../store/actions/index'
 class Subject extends Component {
     render() {
         return (
@@ -14,7 +14,7 @@ class Subject extends Component {
                     {this.props.name}
                 </label>
 
-                <div className="deleteBox" onClick={(ev) => {this.props.delete(this.props.listId); ev.stopPropagation()}}>
+                <div className="deleteBox" onClick={(ev) => {this.props.delete(this.props.user, {id: this.props.name}); ev.stopPropagation()}}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>
@@ -22,10 +22,16 @@ class Subject extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
 function mapDispatchToProps (dispatch) {
     return bindActionCreators({
-        delete: subjectDeleted,
+        delete: deleteSubject,
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Subject)
+export default connect(mapStateToProps, mapDispatchToProps)(Subject)

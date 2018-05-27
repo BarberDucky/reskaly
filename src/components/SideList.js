@@ -16,11 +16,6 @@ class SideList extends Component {
                     this.props.selectorRequested(subject.name)
                     this.props.scalesRequested(subject.name)
                 }}
-                onDoubleClick={() => {
-                    if (this.props.isModerator) {
-                        this.props.add({subject: this.props.subjects[index], index: index})
-                    }
-                }}
                 selected={this.props.selected === index}/>
         )
         return (

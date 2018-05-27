@@ -5,7 +5,7 @@ import {watchScales} from './scales.saga'
 import {watchUpdateSelector, watchSelector} from './selector.saga'
 import { watchAuthSaga } from './auth.saga';
 import { watchRegSaga } from './reg.saga';
-import { watchNewSubject } from './subjects.saga';
+import { watchNewSubject, watchRemoveSubject } from './subjects.saga';
 
 export default function* root() {
     yield all([
@@ -14,6 +14,7 @@ export default function* root() {
         fork(watchUpdateSelector),
         fork(watchAuthSaga),
         fork(watchRegSaga),
-        fork(watchNewSubject)
+        fork(watchNewSubject),
+        fork(watchRemoveSubject)
     ])
 }

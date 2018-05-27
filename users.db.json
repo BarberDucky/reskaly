@@ -1,9 +1,5 @@
 {
-  "subjects": [
-    {
-      "id": "damjan"
-    }
-  ],
+  "subjects": [],
   "selectors": [
     {
       "id": "trt",
@@ -32,11 +28,7 @@
       "id": "dare",
       "password": "asd",
       "isModerator": true,
-      "subjects": [
-        {
-          "id": "damjan"
-        }
-      ]
+      "subjects": []
     },
     {
       "id": "damjan",

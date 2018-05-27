@@ -34,6 +34,8 @@ export const REG_REQ = 'REG_REQ'
 export const REG_SUCC = 'REG_SUCC'
 export const REG_FAIL = 'REG_FAIL'
 export const POST_SUBJECT = 'POST_SUBJECT'
+export const PUT_SUBJECT = 'PUT_SUBJECT'
+export const DELETE_SUBJECT = 'DELETE_SUBJECT'
 export const UPDATE_USER = 'UPDATE_USER'
 
 export function userLoad(userData) {
@@ -293,7 +295,7 @@ export function regFail() {
 
 export function postSubject(user, subject) {
     console.log(user, subject)
-    return{
+    return {
         type: POST_SUBJECT,
         payload: {
             user: user,
@@ -302,7 +304,18 @@ export function postSubject(user, subject) {
     }
 }
 
-export function updateUser(user){
+export function deleteSubject(user, subject) {
+    console.log(user, subject)
+    return {
+        type: DELETE_SUBJECT,
+        payload: {
+            user: user,
+            subject: subject
+        }
+    }
+}
+
+export function updateUser(user) {
     return {
         type: UPDATE_USER,
         payload: user

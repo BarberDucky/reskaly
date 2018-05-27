@@ -10,7 +10,18 @@ export default function (state = 'login', action) {
         {
             return 'login'
         }
-
+        case actions.REGISTER_KEY: 
+        {
+            return 'register'
+        }
+        case actions.CANCEL_KEY:
+        {
+            return 'login'
+        }
+        case actions.LOGOUT_KEY:
+        {
+            return 'login'
+        }
         default:
             {
                 return state

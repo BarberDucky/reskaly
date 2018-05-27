@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import SideList from '../components/SideList'
 import Scaler from '../components/Scaler'
 import Selector from '../components/Selector'
-import { Redirect } from 'react-router-dom'
 import '../css/style.css'
+import { bindActionCreators } from 'redux';
+import { logoutKey } from '../store/actions';
+import {connect} from 'react-redux'
 
-export default class Main extends Component {
+class Main extends Component {
     constructor() {
         super()
-        this.state = { redirect: 'main', sideList: false }
-        this.logout = this.logout.bind(this)
+        this.state = { sideList: false }
         this.toggleSide = this.toggleSide.bind(this)
         window.onresize = () => this.setState({ sideList: this.state.sideList && window.innerWidth < 1200 })
     }
@@ -27,9 +28,6 @@ export default class Main extends Component {
             display = 'none'
         }
 
-        if (this.state.redirect === 'login') {
-            return <Redirect push to='/login' />
-        } else {
             return (
                 <div className='mainContainer'>
                     <header>
@@ -37,7 +35,7 @@ export default class Main extends Component {
                             <img className='headerMenu' src='/img/menu.png' alt='menu' onClick={() => this.toggleSide()}/>
                             <h1>ReSkaly</h1>
                         </div>
-                        <button onClick={this.logout}>Logout</button>
+                        <button onClick={this.props.logout}>Logout</button>
                     </header>
                     <div className="mainDiv">
                         <div className='tint' style={{opacity: tint, pointerEvents: display }}onClick={() => this.deselect()}></div>
@@ -49,10 +47,6 @@ export default class Main extends Component {
                     </div>
                 </div>
             )
-        }
-    }
-    logout() {
-        this.setState({ redirect: 'login' })
     }
     toggleSide() {
         console.log()
@@ -62,3 +56,11 @@ export default class Main extends Component {
         this.setState({ sideList: false })
     }
 }
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        logout: logoutKey
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Main)

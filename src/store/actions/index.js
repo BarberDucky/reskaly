@@ -27,6 +27,9 @@ export const SELECTOR_UPDATED = 'SELECTOR_UPDATED'
 export const AUTH_REQ = 'AUTH_REQ'
 export const AUTH_SUCC = 'AUTH_SUCC'
 export const AUTH_FAIL = 'AUTH_FAIL'
+export const REGISTER_KEY = 'REGISTER_KEY'
+export const CANCEL_KEY = 'CANCEL_KEY'
+export const LOGOUT_KEY = 'LOGOUT_KEY'
 
 export function userLoad(userData) {
     return {
@@ -239,5 +242,23 @@ export function authFail() {
     return {
         type: AUTH_FAIL,
         payload: null
+    }
+}
+
+export function registerKey() {
+    return {
+        type: REGISTER_KEY
+    }
+}
+
+export function cancelKey() {
+    return {
+        type: CANCEL_KEY
+    }
+}
+
+export function logoutKey() {
+    return {
+        type: LOGOUT_KEY
     }
 }

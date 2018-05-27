@@ -1,28 +1,40 @@
 {
-    "subjects": [{
-        "id": "trt"
-    }],
-
-    "selectors": [{
-        "id": "trt",
-        "selector": [{
-            "name": "prt",
-            "part": 30
-        }]
-    }],
-
-    "scales": [{
-        "id": "trt",
-        "scales": [
-            [{
-                "name": "prt"
-            }]
+  "subjects": [
+    {
+      "id": "trt"
+    }
+  ],
+  "selectors": [
+    {
+      "id": "trt",
+      "selector": [
+        {
+          "name": "prt",
+          "part": 30
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "id": "trt",
+      "scales": [
+        [
+          {
+            "name": "prt"
+          }
         ]
-    }],
-
-    "users": [{
-        "id": "pera",
-        "password": "trt"
-    }]
-
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "pera",
+      "password": "trt"
+    },
+    {
+      "id": "pjero",
+      "password": "sad"
+    }
+  ]
 }

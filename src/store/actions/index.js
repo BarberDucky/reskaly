@@ -30,6 +30,9 @@ export const AUTH_FAIL = 'AUTH_FAIL'
 export const REGISTER_KEY = 'REGISTER_KEY'
 export const CANCEL_KEY = 'CANCEL_KEY'
 export const LOGOUT_KEY = 'LOGOUT_KEY'
+export const REG_REQ = 'REG_REQ'
+export const REG_SUCC = 'REG_SUCC'
+export const REG_FAIL = 'REG_FAIL'
 
 export function userLoad(userData) {
     return {
@@ -260,5 +263,27 @@ export function cancelKey() {
 export function logoutKey() {
     return {
         type: LOGOUT_KEY
+    }
+}
+
+export function regReq(username, password) {
+    return {
+        type: REG_REQ,
+        payload: {
+            username: username,
+            password: password
+        }
+    }
+}
+
+export function regSucc() {
+    return {
+        type: REG_SUCC,
+    }
+}
+
+export function regFail() {
+    return {
+        type: REG_FAIL
     }
 }

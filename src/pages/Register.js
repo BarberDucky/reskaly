@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { cancelKey } from '../store/actions';
+import { cancelKey, regReq } from '../store/actions';
 class Register extends Component {
     constructor() {
         super()
@@ -17,7 +17,7 @@ class Register extends Component {
                 <label><span>Username</span><input name='username' ref={(input) => this.username = input} /></label>
                 <label><span>Password</span><input name='password' ref={(input) => this.password = input} /></label>
                 <label className='checkbox'>Are you a moderator?<input type='checkbox' /></label>
-                <button onClick={this.register}>REGISTER</button>
+                <button onClick={() => this.props.register(this.username.value, this.password.value)}>REGISTER</button>
                 <button onClick={this.props.cancel}>BACK</button>
             </div>
         )
@@ -26,6 +26,7 @@ class Register extends Component {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        register: regReq,
         cancel: cancelKey
     }, dispatch)
 }

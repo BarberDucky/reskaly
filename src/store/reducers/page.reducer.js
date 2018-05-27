@@ -10,6 +10,14 @@ export default function (state = 'login', action) {
         {
             return 'login'
         }
+        case actions.REG_SUCC: 
+        {
+            return 'login'
+        }
+        case actions.REG_FAIL:
+        {
+            return 'register'
+        }
         case actions.REGISTER_KEY: 
         {
             return 'register'

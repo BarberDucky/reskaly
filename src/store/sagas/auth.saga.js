@@ -12,7 +12,8 @@ import {
 
 export function* authSaga(action) {
     const data = yield call(getUser, action.payload.username)
-    if (data.password === action.payload.password) {
+    console.log(data)
+    if (data !== undefined && data.password === action.payload.password) {
         yield put(authSucc(data))
         alert('success')
     } else {

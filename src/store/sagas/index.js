@@ -4,12 +4,14 @@ import { selectorLoaded, scalesLoaded, selectorUpdated } from '../actions';
 import {watchScales} from './scales.saga'
 import {watchUpdateSelector, watchSelector} from './selector.saga'
 import { watchAuthSaga } from './auth.saga';
+import { watchRegSaga } from './reg.saga';
 
 export default function* root() {
     yield all([
         fork(watchScales),
         fork(watchSelector),
         fork(watchUpdateSelector),
-        fork(watchAuthSaga)
+        fork(watchAuthSaga),
+        fork(watchRegSaga)
     ])
 }

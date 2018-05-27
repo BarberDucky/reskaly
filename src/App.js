@@ -14,10 +14,10 @@ class App extends Component {
         <MuiThemeProvider>
           <Router>
             <div>
+              <Redirect push to={`/${this.props.page}`} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route exact path="/main" component={Main} />
-              <Redirect push to={`/${this.props.page}`} />
             </div>
           </ Router>
         </MuiThemeProvider>

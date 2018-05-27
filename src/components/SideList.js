@@ -8,7 +8,7 @@ class SideList extends Component {
     render() {
         const subjects = this.props.subjects.map((subject, index) =>
             <Subject 
-                name = {subject.name} 
+                name = {subject.id} 
                 key={`subject${index}`} 
                 listId={index} 
                 onClick={() => {

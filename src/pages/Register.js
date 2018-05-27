@@ -8,6 +8,7 @@ class Register extends Component {
         super()
         this.username = ''
         this.password = ''
+        this.checkbox = false
     }
     render() {
         return (
@@ -16,8 +17,8 @@ class Register extends Component {
                 <h2>Register</h2>
                 <label><span>Username</span><input name='username' ref={(input) => this.username = input} /></label>
                 <label><span>Password</span><input name='password' ref={(input) => this.password = input} /></label>
-                <label className='checkbox'>Are you a moderator?<input type='checkbox' /></label>
-                <button onClick={() => this.props.register(this.username.value, this.password.value)}>REGISTER</button>
+                <label className='checkbox'>Are you a moderator?<input type='checkbox' name='checkbox'ref={(input) => this.checkbox = input}/></label>
+                <button onClick={() => this.props.register(this.username.value, this.password.value, this.checkbox.checked)}>REGISTER</button>
                 <button onClick={this.props.cancel}>BACK</button>
             </div>
         )

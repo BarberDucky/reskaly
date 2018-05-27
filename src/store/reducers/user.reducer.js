@@ -1,54 +1,15 @@
 import * as actions from '../actions/index'
 
-const initialState = {
-    username: 'damjan',
-    password: 'asd',
-    isModerator: true,
-    subjects: [
-        {
-            name: 'trt'
-        }
-    ]
-}
-
-export default function (state = initialState, action) {
+export default function (state = null, action) {
     switch (action.type) {
-        case actions.USER_LOAD:
+        case actions.AUTH_SUCC:
             {
                 return action.payload
             }
-        case actions.SUBJECT_ADDED:
-            {
-                return state
-            }
-        case actions.SUBJECT_DELETED:
-            {
-                return state
-            }
-        case actions.SUBJECT_SELECTED:
-            {
-                return state
-            }
-        case actions.SCALE_ADDED:
-            {
-                return state
-            }
-        case actions.SCALE_DELETED:
-            {
-                return state
-            }
-        case actions.BOX_ADDED:
-            {
-                return state
-            }
-        case actions.BOX_DELETED:
-            {
-                return state
-            }
-        case actions.BOX_SELECTED:
-            {
-                return state
-            }
+        case actions.UPDATE_USER:
+        {
+            return action.payload
+        }
         default: 
         {
             return state

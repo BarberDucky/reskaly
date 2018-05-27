@@ -11,7 +11,7 @@ import {
 } from '../actions';
 
 export function* regSaga(action) {
-    const data = yield call(postUser, action.payload.username, action.payload.password)
+    const data = yield call(postUser, action.payload.username, action.payload.password, action.payload.isModerator)
     if (data) {
         yield put(regSucc())
         alert('success')

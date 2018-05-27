@@ -26,6 +26,10 @@ export default function (state = {subject: {}, index: -1, selected: false}, acti
             {
                 return {subject: {}, index:-1, selected: false}
             }
+        case actions.POST_SUBJECT: 
+            {
+                return {subject: {}, index:-1, selected: false}
+            }
         default:
             {
                 return state

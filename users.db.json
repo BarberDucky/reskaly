@@ -1,7 +1,7 @@
 {
   "subjects": [
     {
-      "id": "trt"
+      "id": "damjan"
     }
   ],
   "selectors": [
@@ -29,12 +29,20 @@
   ],
   "users": [
     {
-      "id": "pera",
-      "password": "trt"
+      "id": "dare",
+      "password": "asd",
+      "isModerator": true,
+      "subjects": [
+        {
+          "id": "damjan"
+        }
+      ]
     },
     {
-      "id": "pjero",
-      "password": "sad"
+      "id": "damjan",
+      "password": "asd",
+      "isModerator": false,
+      "subjects": []
     }
   ]
 }

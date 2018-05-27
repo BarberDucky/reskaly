@@ -33,6 +33,8 @@ export const LOGOUT_KEY = 'LOGOUT_KEY'
 export const REG_REQ = 'REG_REQ'
 export const REG_SUCC = 'REG_SUCC'
 export const REG_FAIL = 'REG_FAIL'
+export const POST_SUBJECT = 'POST_SUBJECT'
+export const UPDATE_USER = 'UPDATE_USER'
 
 export function userLoad(userData) {
     return {
@@ -266,12 +268,13 @@ export function logoutKey() {
     }
 }
 
-export function regReq(username, password) {
+export function regReq(username, password, isModerator) {
     return {
         type: REG_REQ,
         payload: {
             username: username,
-            password: password
+            password: password,
+            isModerator: isModerator
         }
     }
 }
@@ -285,5 +288,23 @@ export function regSucc() {
 export function regFail() {
     return {
         type: REG_FAIL
+    }
+}
+
+export function postSubject(user, subject) {
+    console.log(user, subject)
+    return{
+        type: POST_SUBJECT,
+        payload: {
+            user: user,
+            subject: subject
+        }
+    }
+}
+
+export function updateUser(user){
+    return {
+        type: UPDATE_USER,
+        payload: user
     }
 }

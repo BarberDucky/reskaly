@@ -1,24 +1,14 @@
 import * as actions from '../actions/index'
 
-const initialState = [{
-    name: 'trt',
-    selector: [
-        {
-            name: 'prt'
-        }
-    ],
-    scales: [
-        [{
-            name: 'prt'
-        }]
-    ]
-}]
-
-export default function (state = initialState, action) {
+export default function (state = null, action) {
     switch (action.type) {
-        case actions.SUBJECT_SUBMIT:
+        case actions.AUTH_SUCC: 
+        {
+            return action.payload.subjects
+        }
+        case actions.POST_SUBJECT:
             {
-                return [...state, action.payload]
+                return [...state, action.payload.subject]
             }
         case actions.SUBJECT_UPDATED: 
             {

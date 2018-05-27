@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Dialog, TextField, FlatButton } from 'material-ui';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { subjectAdded, subjectDeselected, subjectSubmit, subjectUpdated } from '../../store/actions/index'
+import { subjectAdded, subjectDeselected, subjectSubmit, subjectUpdated, postSubject } from '../../store/actions/index'
 
 class SelectorDialog extends Component {
     constructor() {
@@ -13,14 +13,13 @@ class SelectorDialog extends Component {
         let handleSubmit = (ev) => {
             ev.preventDefault()
             let subject = {
-                name: ev.target.elements.name.value,
-                selector: []
+                id: ev.target.elements.name.value,
             }
             console.log(subject)
             if (this.props.index !== -1) {
                 this.props.update({ subject: subject, index: this.props.index })
             } else {
-                this.props.submit(subject)
+                this.props.post(this.props.user, subject)
             }
         }
         return (
@@ -56,7 +55,8 @@ function mapStateToProps(state) {
     return {
         subject: state.subjectCreate.subject,
         index: state.subjectCreate.index,
-        selected: state.subjectCreate.selected
+        selected: state.subjectCreate.selected,
+        user: state.user
     }
 }
 
@@ -65,7 +65,8 @@ function mapDispatchToProps(dispatch) {
         select: subjectAdded,
         deselect: subjectDeselected,
         submit: subjectSubmit,
-        update: subjectUpdated
+        update: subjectUpdated,
+        post: postSubject
     }, dispatch)
 }
 

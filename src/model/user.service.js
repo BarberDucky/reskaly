@@ -14,12 +14,12 @@ export const checkUserExists = async (username) => {
     }
 }
 
-export const postUser = async (username, password) => {
+export const postUser = async (username, password, isModerator) => {
     const check = await checkUserExists(username)
     if (!check && password !== "") {
-        fetch('http://localhost:3001/users', {
+        await fetch('http://localhost:3001/users', {
             method: 'POST',
-            body: JSON.stringify({id: username, password: password}),
+            body: JSON.stringify({id: username, password: password, isModerator: isModerator, subjects: []}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -28,4 +28,14 @@ export const postUser = async (username, password) => {
     } else {
         return false
     }
+}
+
+export const putUser = async (user) => {
+    await fetch(`http://localhost:3001/users/${user.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
 }

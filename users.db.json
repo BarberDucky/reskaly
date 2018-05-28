@@ -1,70 +1,32 @@
 {
   "subjects": [
     {
-      "id": "mrt"
-    },
-    {
       "id": "trt"
     }
   ],
   "selectors": [
     {
-      "id": "mrt",
-      "selector": [
-        {
-          "name": "asd",
-          "max": "",
-          "num": "",
-          "part": "80"
-        }
-      ]
-    },
-    {
       "id": "trt",
       "selector": [
         {
-          "name": "tandara",
+          "name": "ispit",
           "max": "",
           "num": "",
-          "part": "40"
-        },
-        {
-          "name": "mandara",
-          "max": "",
-          "num": "",
-          "part": "20"
+          "part": "10"
         }
       ]
     }
   ],
   "scales": [
     {
-      "id": "mrt",
-      "scales": [
-        [
-          {
-            "name": "asd"
-          }
-        ]
-      ]
-    },
-    {
       "id": "trt",
       "scales": [
         [
           {
-            "name": "mandara"
+            "name": "ispit"
           },
           {
-            "name": "tandara"
-          }
-        ],
-        [
-          {
-            "name": "tandara"
-          },
-          {
-            "name": "mandara"
+            "name": "ispit"
           }
         ]
       ]
@@ -77,20 +39,23 @@
       "isModerator": true,
       "subjects": [
         {
-          "id": "mrt"
-        },
-        {
           "id": "trt"
         }
       ]
     },
     {
       "id": "damjan",
-      "password": "asd",
       "isModerator": false,
+      "password": "asd",
       "subjects": [
         {
-          "id": "trt"
+          "id": "trt",
+          "points": [
+            {
+              "name": "ispit",
+              "points": "201"
+            }
+          ]
         }
       ]
     }

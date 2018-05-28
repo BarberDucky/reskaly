@@ -9,16 +9,25 @@ class Row extends Component {
             .find((element, index) => index === this.props.listId)
             .map((element, index) => {
                 let box = this.props.selector.selector.find(cell => cell.name === element.name)
+                let userPoints
+                console.log('user dialog', this.props.user, this.props.subjectSelected, element)
+                if (!this.props.isModerator){
+                    userPoints = this.props.user
+                       .subjects.find(subject => subject.id === this.props.subjectSelected)
+                       .points.find(point => point.name === element.name)
+                   } else {
+                       userPoints = {points: 0}
+                   }
                 return <Cell
                     key={`cell${this.props.listId},${index}`}
                     name={box.name}
-                    points={element.points}
+                    points={userPoints.points}
                     listId={index}
                     parentId={this.props.listId}
                     width={box.part}
                     onClick={() => {
                         if (!this.props.isModerator) {
-                            this.props.cellSelected({cellId: box.name, points: element.points})
+                            this.props.cellSelected({cellId: box.name})
                         }
                     }}
                     />
@@ -56,7 +65,9 @@ function mapStateToProps(state) {
     return {
         scales: state.scales,
         selector: state.selector,
-        isModerator: state.user.isModerator
+        user: state.user,
+        isModerator: state.user.isModerator,
+        subjectSelected: state.subjectSelected
     }
 }
 

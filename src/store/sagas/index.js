@@ -4,6 +4,7 @@ import {watchSelector, watchBoxAdd, watchBoxDelete, watchBoxUpdate} from './sele
 import { watchAuthSaga } from './auth.saga';
 import { watchRegSaga } from './reg.saga';
 import { watchNewSubject, watchRemoveSubject } from './subjects.saga';
+import { watchCellSubmit } from './user.saga';
 
 export default function* root() {
     yield all([
@@ -19,6 +20,7 @@ export default function* root() {
         fork(watchScaleAdd),
         fork(watchScaleDelete),
         fork(watchCellAdd),
-        fork(watchCellDelete)
+        fork(watchCellDelete),
+        fork(watchCellSubmit)
     ])
 }

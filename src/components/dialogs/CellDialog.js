@@ -4,18 +4,26 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { cellSelected, cellDeselected, cellSubmit } from '../../store/actions/index'
 
-class SelectorDialog extends Component {
+class CellDialog extends Component {
     render() {
+        let userPoints
+        if (this.props.cell !== null){
+         userPoints = this.props.user
+            .subjects.find(element => element.id === this.props.selectedSubject)
+            .points.find(element => element.name === this.props.cell)
+        } else {
+            userPoints = {points: 0}
+        }
+        
         let handleSubmit = (ev) => {
             ev.preventDefault()
             let points =  ev.target.elements.points.value
             console.log(points)
-            this.props.submit({ cellId: this.props.cellId, points: points})
-            
+            this.props.submit({name: userPoints.name, points: points}, this.props.selectedSubject, this.props.user)
         }
         return (
             <Dialog
-                title={`Input earned points for ${this.props.cellId}`}
+                title={`Input earned points for ${this.props.cell}`}
                 open={this.props.selected}
                 onRequestClose={this.props.deselect} >
                 <form onSubmit={(ev) => handleSubmit(ev)}>
@@ -23,7 +31,7 @@ class SelectorDialog extends Component {
                         hintText="eg. 50"
                         floatingLabelText="Points"
                         name="points"
-                        defaultValue={this.props.points}
+                        defaultValue={userPoints.points}
                     />
                     <br />
                     <FlatButton
@@ -44,9 +52,10 @@ class SelectorDialog extends Component {
 
 function mapStateToProps(state) {
     return {
-        points: state.cellSelected.points,
-        cellId: state.cellSelected.cellId,
-        selected: state.cellSelected.selected
+        cell: state.cellSelected.cellId,
+        selected: state.cellSelected.selected,
+        user: state.user,
+        selectedSubject: state.subjectSelected
     }
 }
 
@@ -58,4 +67,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectorDialog)
+export default connect(mapStateToProps, mapDispatchToProps)(CellDialog)

@@ -153,10 +153,14 @@ export function cellDeselected(cell) {
     }
 }
 
-export function cellSubmit(cell) {
+export function cellSubmit(cell, selectedSubject, user) {
     return {
         type: CELL_SUBMIT,
-        payload: cell
+        payload: {
+            cell: cell,
+            selectedSubject: selectedSubject,
+            user: user
+        }
     }
 }
 

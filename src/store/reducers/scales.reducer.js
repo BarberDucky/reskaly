@@ -20,18 +20,6 @@ export default function (state = initialState, action) {
         {
             return {id: action.payload.id, scales:[...action.payload.scales]}
         }
-        case actions.CELL_SUBMIT:
-            {
-                return state.map(array => {
-                    return array.map(element => {
-                        if (element.name === action.payload.cellId) {
-                            return {name: element.name, points: action.payload.points}
-                        } else {
-                            return element
-                        }
-                    })
-                })
-            }
         default:
             {
                 return state

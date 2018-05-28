@@ -1,22 +1,22 @@
 import * as actions from '../actions/index'
 
-export default function (state = {cellId: null, points: 0, selected: false}, action) {
+export default function (state = {cellId: null, selected: false}, action) {
     switch (action.type) {
         case actions.CELL_SELECTED:
             {
                 if (action.payload) {
-                    return {cellId: action.payload.cellId, points: action.payload.points, selected: true}
+                    return {cellId: action.payload.cellId, selected: true}
                 } else {
-                    return {cellId: null, points: 0, selected: true}
+                    return {cellId: null, selected: true}
                 }
             }
         case actions.CELL_SUBMIT: 
             {
-                return {cellId: null, points: 0, selected: false}
+                return {cellId: null, selected: false}
             }
         case actions.CELL_DESELECTED: 
             {
-                return {cellId: null, points: 0, selected: false}
+                return {cellId: null, selected: false}
             }
         default: 
         {

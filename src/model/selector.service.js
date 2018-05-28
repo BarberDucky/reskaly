@@ -16,7 +16,7 @@ export const postSelector = async (id) => {
 }
 
 export const putSelector = async (newSelector) => {
-    const res = await fetch(`http://localhost:3001/selectors/${newSelector.id}`, {
+    await fetch(`http://localhost:3001/selectors/${newSelector.id}`, {
         method: 'PUT',
         body: JSON.stringify(newSelector),
         headers: new Headers({

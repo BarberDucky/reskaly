@@ -192,10 +192,13 @@ export function boxSubmit(box, selector) {
     }
 }
 
-export function boxUpdate(box) {
+export function boxUpdate(box, selector) {
     return {
         type: BOX_UPDATE,
-        payload: box
+        payload: {
+            box: box,
+            selector: selector
+        }
     }
 }
 

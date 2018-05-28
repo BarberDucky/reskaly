@@ -1,6 +1,6 @@
 import {getScales} from '../../model/scales.service'
-import {all, call, fork, put, takeLatest} from 'redux-saga/effects'
-import { selectorLoaded, scalesLoaded, selectorUpdated } from '../actions';
+import {call, put, takeLatest} from 'redux-saga/effects'
+import { scalesLoaded} from '../actions';
 import * as actions from '../actions'
 
 export function* scalesSaga(action) {

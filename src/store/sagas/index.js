@@ -1,6 +1,4 @@
-import {getSelector, getScales, putSelector} from '../../model/selector.service'
-import {all, call, fork, put, takeLatest} from 'redux-saga/effects'
-import { selectorLoaded, scalesLoaded, selectorUpdated } from '../actions';
+import {all, fork} from 'redux-saga/effects'
 import {watchScales} from './scales.saga'
 import {watchSelector, watchBoxAdd, watchBoxDelete} from './selector.saga'
 import { watchAuthSaga } from './auth.saga';

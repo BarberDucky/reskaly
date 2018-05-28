@@ -1,7 +1,7 @@
 
-import {getSelector, getScales, putSelector} from '../../model/selector.service'
-import {all, call, fork, put, takeLatest} from 'redux-saga/effects'
-import { selectorLoaded, scalesLoaded, selectorUpdated } from '../actions';
+import {getSelector, putSelector} from '../../model/selector.service'
+import {call, put, takeLatest} from 'redux-saga/effects'
+import { selectorLoaded} from '../actions';
 import * as actions from '../actions'
 
 export function* selectorSaga(action) {
@@ -33,4 +33,21 @@ export function* boxDeleteSaga(action) {
 
 export function* watchBoxDelete() {
     yield takeLatest(actions.BOX_DELETED, boxDeleteSaga)
+}
+
+export function* boxUpdateSaga(action) {
+    let selector = action.payload.selector
+    selector.selector = selector.selector.map(element => {
+        if (element.name === action.payload.box.name) {
+            return action.payload.box
+        } else {
+            return element
+        }
+    })
+    yield call(putSelector, selector)
+    yield put(selectorLoaded(selector))
+}
+
+export function* watchBoxUpdate() {
+    yield takeLatest(actions.BOX_UPDATE, boxUpdateSaga)
 }

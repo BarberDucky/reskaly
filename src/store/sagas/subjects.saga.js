@@ -1,4 +1,4 @@
-import {takeLatest, put, call} from 'redux-saga/effects'
+import {takeLatest, call} from 'redux-saga/effects'
 import * as actions from '../actions'
 import { postSubject, deleteSubject } from '../../model/subject.service';
 import { putUser } from '../../model/user.service';

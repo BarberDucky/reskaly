@@ -12,16 +12,6 @@ export default function (state = initialState, action) {
         {
             return initialState
         }
-        case actions.BOX_UPDATE:
-            {
-                return state.map((element, index) => {
-                    if (index === action.payload.index) {
-                        return action.payload.box
-                    } else {
-                        return element
-                    }
-                })
-            }
         default: 
         {
             return state

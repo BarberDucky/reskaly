@@ -38,6 +38,7 @@ export const POST_SUBJECT = 'POST_SUBJECT'
 export const PUT_SUBJECT = 'PUT_SUBJECT'
 export const DELETE_SUBJECT = 'DELETE_SUBJECT'
 export const UPDATE_USER = 'UPDATE_USER'
+export const POST_SUBJECT_RESOLVE = 'POST_SUBJECT_RESOLVE'
 
 export function userLoad(userData) {
     return {
@@ -311,13 +312,14 @@ export function regFail() {
     }
 }
 
-export function postSubject(user, subject) {
+export function postSubject(user, subject, isModerator) {
     console.log(user, subject)
     return {
         type: POST_SUBJECT,
         payload: {
             user: user,
-            subject: subject
+            subject: subject,
+            isModerator: isModerator
         }
     }
 }
@@ -344,5 +346,12 @@ export function scalesReady(id) {
     return {
         type: SCALES_READY,
         payload: id
+    }
+}
+
+export function postSubjectResolve(subject) {
+    return {
+        type: POST_SUBJECT_RESOLVE,
+        payload: subject
     }
 }

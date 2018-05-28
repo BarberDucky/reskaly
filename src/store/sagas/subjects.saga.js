@@ -1,17 +1,32 @@
-import {takeLatest, call} from 'redux-saga/effects'
+import {takeLatest, call, put} from 'redux-saga/effects'
 import * as actions from '../actions'
-import { postSubject, deleteSubject } from '../../model/subject.service';
+import { postSubject, deleteSubject, getSubjects } from '../../model/subject.service';
 import { putUser } from '../../model/user.service';
 import { postScales, deleteScales } from '../../model/scales.service';
 import { postSelector, deleteSelector } from '../../model/selector.service';
 
 export function* newSubjectSaga(action){
-    yield call(postSubject, action.payload.subject)
-    let user = action.payload.user
-    user.subjects = [...user.subjects, action.payload.subject]
-    yield call(putUser, user)
-    yield call(postScales, action.payload.subject.id)
-    yield call(postSelector, action.payload.subject.id)
+    if (action.payload.isModerator) {
+        yield call(postSubject, action.payload.subject)
+        yield call(postScales, action.payload.subject.id)
+        yield call(postSelector, action.payload.subject.id)
+        let user = action.payload.user
+        user.subjects = [...user.subjects, action.payload.subject]
+        yield call(putUser, user)
+        yield put(actions.postSubjectResolve(action.payload.subject))
+    } else {
+        const data = yield call(getSubjects, action.payload.subject.id)
+        console.log('data iz geta', data)
+        if (data) {
+            let user = action.payload.user
+            user.subjects = [...user.subjects, action.payload.subject]
+            yield call(putUser, user)
+            yield put(actions.postSubjectResolve(action.payload.subject))
+        } else {
+            alert('predmet ne postoji')
+        }
+    }
+    
     //yield put(actions.updateUser, user)
 }
 

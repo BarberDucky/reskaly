@@ -9,7 +9,7 @@ class Selector extends Component {
         let assignments = this.props.selector
             .map((assignment, index) => {
                 return (<SelectorCell
-                    color={'black'}
+                    color={'slateblue'}
                     upperText={assignment.name[0]}
                     lowerText={assignment.name}
                     listId={index}

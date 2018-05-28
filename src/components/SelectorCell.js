@@ -5,7 +5,7 @@ import { boxDeleted, cellUpdated } from '../store/actions';
 class SelectorCell extends Component {
     render() {
         return (
-            <div style={{color: this.props.color}} 
+            <div style={{borderColor: this.props.color}} 
                 className='assignDiv'
                 onClick={this.props.onClick}
                 draggable={this.props.isModerator}

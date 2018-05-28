@@ -6,9 +6,9 @@ export default function (state = null, action) {
         {
             return action.payload.subjects
         }
-        case actions.POST_SUBJECT:
+        case actions.POST_SUBJECT_RESOLVE:
             {
-                return [...state, action.payload.subject]
+                return [...state, action.payload]
             }
         case actions.SUBJECT_UPDATED: 
             {

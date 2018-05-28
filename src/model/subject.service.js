@@ -1,3 +1,9 @@
+export const getSubjects = async (id) => {
+    const res = await fetch(`http://localhost:3001/subjects?id=${id}`)
+    const data = await res.json()
+    return data[0]
+}
+
 export const postSubject = async(subject) => {
     console.log(`subject : ${subject}`)
     await fetch('http://localhost:3001/subjects', {

@@ -16,7 +16,7 @@ class Cell extends Component {
                     className="deleteBox" 
                     onClick={(ev) => {
                         if (this.props.isModerator) {
-                            this.props.delete(this.props.listId, this.props.parentId)
+                            this.props.delete(this.props.listId, this.props.parentId, this.props.scales)
                             ev.stopPropagation()
                         }
                     }}>
@@ -29,7 +29,8 @@ class Cell extends Component {
 
 function mapStateToProps (state) {
     return {
-        isModerator: state.user.isModerator
+        isModerator: state.user.isModerator,
+        scales: state.scales
     }
 }
 

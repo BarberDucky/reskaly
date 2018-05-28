@@ -1,6 +1,6 @@
 import * as actions from '../actions/index'
 
-export default function (state = null, action) {
+export default function (state = {isModerator: true, subjects: []}, action) {
     switch (action.type) {
         case actions.AUTH_SUCC:
             {

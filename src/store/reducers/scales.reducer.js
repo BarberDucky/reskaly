@@ -16,16 +16,6 @@ export default function (state = initialState, action) {
         {
             return {id: action.payload.id, scales:[...action.payload.scales]}
         }
-        case actions.CELL_DELETED:
-            {
-                return state.map((element, index) => {
-                    if (index === action.payload.scaleId) {
-                        return element.filter((element, index) => index !== action.payload.cellId)
-                    } else {
-                        return element
-                    }
-                })
-            }
         case actions.CELL_UPDATED:
             {
                 if (action.payload.newId) {

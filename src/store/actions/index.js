@@ -117,12 +117,13 @@ export function cellAdded(cellId, scaleId, scales) {
     }
 }
 
-export function cellDeleted(cellId, scaleId) {
+export function cellDeleted(cellId, scaleId, scales) {
     return {
         type: CELL_DELETED,
         payload: {
             cellId: cellId,
-            scaleId: scaleId
+            scaleId: scaleId,
+            scales: scales
         }
     }
 }

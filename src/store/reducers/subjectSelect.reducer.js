@@ -18,6 +18,10 @@ export default function (state = -1, action) {
             {
                 return state
             }
+        case actions.LOGOUT_KEY:
+        {
+            return -1
+        }
         default:
             {
                 return state

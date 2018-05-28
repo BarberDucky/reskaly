@@ -12,7 +12,12 @@ export default function (state = initialState, action) {
         {
             return initialState
         }
-        case actions.SUBJECT_DESELECTED: {
+        case actions.SUBJECT_DESELECTED: 
+        {
+            return initialState
+        }
+        case actions.LOGOUT_KEY: 
+        {
             return initialState
         }
         default: 

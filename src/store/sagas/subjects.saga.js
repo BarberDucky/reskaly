@@ -31,12 +31,14 @@ export function* newSubjectSaga(action){
 }
 
 export function* removeSubjectSaga(action){
-    yield call(deleteSubject, action.payload.subject)
+    if (action.payload.isModerator) {
+        yield call(deleteSubject, action.payload.subject)
+        yield call(deleteScales, action.payload.subject.id)
+        yield call(deleteSelector, action.payload.subject.id)
+    }
     let user = action.payload.user
     user.subjects = user.subjects.filter(element => element.id !== action.payload.subject.id)
     yield call(putUser, user)
-    yield call(deleteScales, action.payload.subject.id)
-    yield call(deleteSelector, action.payload.subject.id)
     //yield put(actions.updateUser, user)
 }
 

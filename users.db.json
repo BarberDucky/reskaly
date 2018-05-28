@@ -90,9 +90,6 @@
       "isModerator": false,
       "subjects": [
         {
-          "id": "mrt"
-        },
-        {
           "id": "trt"
         }
       ]

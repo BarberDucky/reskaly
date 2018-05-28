@@ -324,13 +324,14 @@ export function postSubject(user, subject, isModerator) {
     }
 }
 
-export function deleteSubject(user, subject) {
+export function deleteSubject(user, subject, isModerator) {
     console.log('delete subject', user, subject)
     return {
         type: DELETE_SUBJECT,
         payload: {
             user: user,
-            subject: subject
+            subject: subject,
+            isModerator: isModerator
         }
     }
 }

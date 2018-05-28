@@ -21,11 +21,11 @@ class SelectorDialog extends Component {
             if (this.props.index !== -1) {
                 console.log(this.props.box.name, box.name)
                 
-                this.props.update({ box: box, index: this.props.index })
+                /*this.props.update({ box: box, index: this.props.index })
                 this.props.updateCells(this.props.box.name, box.name)
-                this.props.updateSelector(this.props.selector)
+                this.props.updateSelector(this.props.selector)*/
             } else {
-                this.props.submit(box)
+                this.props.submit(box, this.props.selector)
             }
         }
         return (

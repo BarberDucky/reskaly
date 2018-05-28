@@ -1,18 +1,16 @@
 import * as actions from '../actions/index'
 
-export default function (state = [], action) {
+const initialState = {id: "", selector: []}
+
+export default function (state = initialState, action) {
     switch (action.type) {
         case actions.SELECTOR_LOADED: 
             {
-                return action.payload
-            }
-        case actions.BOX_SUBMIT:
-            {
-                return [...state, action.payload]
+                return {id: action.payload.id, selector: [...action.payload.selector]}
             }
         case actions.DELETE_SUBJECT: 
         {
-            return []
+            return initialState
         }
         case actions.BOX_UPDATE:
             {
@@ -23,10 +21,6 @@ export default function (state = [], action) {
                         return element
                     }
                 })
-            }
-        case actions.BOX_DELETED:
-            {
-                return state.filter((element, index) => index !== action.payload)
             }
         default: 
         {

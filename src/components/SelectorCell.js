@@ -18,7 +18,7 @@ class SelectorCell extends Component {
                     onClick={(ev) => {
                         if (this.props.isModerator) {
                             this.props.updateCells(this.props.lowerText)
-                            this.props.delete(this.props.listId)
+                            this.props.delete(this.props.lowerText, this.props.selector)
                             ev.stopPropagation()}
                         }
                     }>

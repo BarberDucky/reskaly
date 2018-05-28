@@ -1,7 +1,7 @@
 export const getSelector = async (id) => {
-    const res = await fetch(`http://localhost:3001/selectors/${id}`)
+    const res = await fetch(`http://localhost:3001/selectors?id=${id}`)
     const data = await res.json()
-    return data
+    return data[0]
 }
 
 export const postSelector = async (id) => {
@@ -15,8 +15,8 @@ export const postSelector = async (id) => {
     })
 }
 
-export const putSelector = async (newSelector, id) => {
-    const res = await fetch(`http://localhost:3001/selectors/${id}`, {
+export const putSelector = async (newSelector) => {
+    const res = await fetch(`http://localhost:3001/selectors/${newSelector.id}`, {
         method: 'PUT',
         body: JSON.stringify(newSelector),
         headers: new Headers({

@@ -158,10 +158,14 @@ export function boxSelected(box) {
     }
 }
 
-export function boxDeleted(box) {
+export function boxDeleted(name, selector) {
+    console.log('for delete', name, selector)
     return {
         type: BOX_DELETED,
-        payload: box
+        payload: {
+            name: name,
+            selector: selector
+        }
     }
 }
 export function boxAdded(box) {
@@ -178,10 +182,13 @@ export function boxDeselected(box) {
     }
 }
 
-export function boxSubmit(box) {
+export function boxSubmit(box, selector) {
     return {
         type: BOX_SUBMIT,
-        payload: box
+        payload: {
+            box: box,
+            selector: selector
+        }
     }
 }
 

@@ -6,18 +6,31 @@ import * as actions from '../actions'
 
 export function* selectorSaga(action) {
     const data = yield call(getSelector, action.payload)
-    yield put(selectorLoaded(data.selector))
+    yield put(selectorLoaded(data))
 }
 
 export function* watchSelector() {
     yield takeLatest(actions.SUBJECT_SELECTED, selectorSaga)
 }
 
-export function* selectorUpdateSaga(action) {
-    yield call(putSelector, action.payload)
-
+export function* boxAddSaga(action) {
+    let selector = action.payload.selector
+    selector.selector = [...selector.selector, action.payload.box]
+    yield call(putSelector, selector)
+    yield put(selectorLoaded(selector))
 }
-export function* watchUpdateSelector() {
-    yield takeLatest('SELECTOR_UPDATED', selectorUpdateSaga)
+
+export function* watchBoxAdd() {
+    yield takeLatest(actions.BOX_SUBMIT, boxAddSaga)
 }
 
+export function* boxDeleteSaga(action) {
+    let selector = action.payload.selector
+    selector.selector = selector.selector.filter(element => element.name !== action.payload.name)
+    yield call(putSelector, selector)
+    yield put(selectorLoaded(selector))
+}
+
+export function* watchBoxDelete() {
+    yield takeLatest(actions.BOX_DELETED, boxDeleteSaga)
+}

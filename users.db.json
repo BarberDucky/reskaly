@@ -1,13 +1,45 @@
 {
-  "subjects": [],
-  "selectors": [],
-  "scales": [],
+  "subjects": [
+    {
+      "id": "asd"
+    },
+    {
+      "id": "trt"
+    }
+  ],
+  "selectors": [
+    {
+      "id": "asd",
+      "selector": []
+    },
+    {
+      "id": "trt",
+      "selector": []
+    }
+  ],
+  "scales": [
+    {
+      "id": "asd",
+      "scales": []
+    },
+    {
+      "id": "trt",
+      "scales": []
+    }
+  ],
   "users": [
     {
       "id": "dare",
       "password": "asd",
       "isModerator": true,
-      "subjects": []
+      "subjects": [
+        {
+          "id": "asd"
+        },
+        {
+          "id": "trt"
+        }
+      ]
     },
     {
       "id": "damjan",

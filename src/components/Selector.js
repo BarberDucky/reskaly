@@ -40,7 +40,7 @@ class Selector extends Component {
 
 function mapStateToProps(state) {
     return {
-        selector: state.selector,
+        selector: state.selector.selector,
         isModerator: state.user.isModerator,
         subjectSelected: state.subjectSelected
     }

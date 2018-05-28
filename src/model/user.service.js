@@ -1,7 +1,22 @@
+import { getSubjects } from "./subject.service";
+
 export const getUser = async (username) => {
     const res = await fetch(`http://localhost:3001/users?id=${username}`)
     const data = await res.json()
-    return data[0]
+
+    let user = data[0]
+    let newArray = []
+    let checkedSubject
+    for(let i=0; i<user.subjects.length; i++){
+        checkedSubject = await getSubjects(user.subjects[i].id)
+        console.log('new user', checkedSubject, user.subjects[i].id)
+        if (checkedSubject) {
+            newArray.push(user.subjects[i])
+        }
+    }
+    user.subjects = newArray
+    await putUser(user)
+    return user
 }
 export const checkUserExists = async (username) => {
     const res = await fetch(`http://localhost:3001/users?id=${username}`)

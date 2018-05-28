@@ -14,7 +14,7 @@ class Login extends Component {
                     <h1>ReSkaly</h1>
                     <h2>Login</h2>
                     <label><span>Username</span><input name='username' ref={(input) => this.username = input} /></label>
-                    <label><span>Password</span><input name='password' ref={(input) => this.password = input} /></label>
+                    <label><span>Password</span><input type='password' name='password' ref={(input) => this.password = input} /></label>
                     <button onClick={() => this.props.login(this.username.value, this.password.value)}>LOGIN</button>
                     <button onClick={() => this.props.register()}>REGISTER</button>
                 </div>

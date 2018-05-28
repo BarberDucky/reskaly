@@ -24,6 +24,7 @@ export const SELECTOR_REQUESTED = 'SELECTOR_REQUESTED'
 export const SCALES_LOADED = 'SCALES_LOADED'
 export const SCALES_REQUESTED = 'SCALES_REQUESTED'
 export const SELECTOR_UPDATED = 'SELECTOR_UPDATED'
+export const SCALES_READY = 'SCALES_READY'
 export const AUTH_REQ = 'AUTH_REQ'
 export const AUTH_SUCC = 'AUTH_SUCC'
 export const AUTH_FAIL = 'AUTH_FAIL'
@@ -329,5 +330,12 @@ export function updateUser(user) {
     return {
         type: UPDATE_USER,
         payload: user
+    }
+}
+
+export function scalesReady(id) {
+    return {
+        type: SCALES_READY,
+        payload: id
     }
 }

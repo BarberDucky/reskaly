@@ -7,6 +7,7 @@ import * as actions from '../actions'
 export function* selectorSaga(action) {
     const data = yield call(getSelector, action.payload)
     yield put(selectorLoaded(data))
+    yield put(actions.scalesReady(action.payload))
 }
 
 export function* watchSelector() {

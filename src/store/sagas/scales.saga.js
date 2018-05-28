@@ -4,11 +4,13 @@ import { scalesLoaded} from '../actions';
 import * as actions from '../actions'
 
 export function* scalesSaga(action) {
+    console.log(action.payload)
     const data = yield call(getScales, action.payload)
-    yield put(scalesLoaded(data.scales))
+    console.log("scales", data)
+    yield put(scalesLoaded(data))
 }
 
 export function* watchScales() {
-    yield takeLatest(actions.SUBJECT_SELECTED, scalesSaga)
+    yield takeLatest(actions.SCALES_READY, scalesSaga)
 }
 

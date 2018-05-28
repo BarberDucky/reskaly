@@ -1,7 +1,7 @@
 export const getScales = async (id) => {
-    const res = await fetch(`http://localhost:3001/scales/${id}`)
+    const res = await fetch(`http://localhost:3001/scales?id=${id}`)
     const data = await res.json()
-    return data
+    return data[0]
 }
 
 export const postScales = async (id) => {

@@ -5,10 +5,10 @@ import { scaleDeleted, cellAdded, cellDeleted, cellSelected } from '../store/act
 import { bindActionCreators } from 'redux';
 class Row extends Component {
     render() {
-        let cells = this.props.scales
+        let cells = this.props.scales.scales
             .find((element, index) => index === this.props.listId)
             .map((element, index) => {
-                let box = this.props.selector.find(cell => cell.name === element.name)
+                let box = this.props.selector.selector.find(cell => cell.name === element.name)
                 return <Cell
                     key={`cell${this.props.listId},${index}`}
                     name={box.name}

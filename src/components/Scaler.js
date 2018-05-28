@@ -6,7 +6,7 @@ import { scaleAdded } from '../store/actions';
 import CellDialog from './dialogs/CellDialog';
 class Scaler extends Component {
     render() {
-        let rows = this.props.scales
+        let rows = this.props.scales.scales
             .map((element, index) =>
                 <Row listId={index} key={`scale${index}`} />
             )

@@ -2,9 +2,6 @@
   "subjects": [
     {
       "id": "asd"
-    },
-    {
-      "id": "trt"
     }
   ],
   "selectors": [
@@ -12,26 +9,24 @@
       "id": "asd",
       "selector": [
         {
-          "name": "asdsa",
-          "max": "91",
+          "name": "asd",
+          "max": "90",
           "num": "5",
-          "part": "45"
+          "part": "80"
         }
       ]
-    },
-    {
-      "id": "trt",
-      "selector": []
     }
   ],
   "scales": [
     {
       "id": "asd",
-      "scales": []
-    },
-    {
-      "id": "trt",
-      "scales": []
+      "scales": [
+        [
+          {
+            "name": "asd"
+          }
+        ]
+      ]
     }
   ],
   "users": [
@@ -42,9 +37,6 @@
       "subjects": [
         {
           "id": "asd"
-        },
-        {
-          "id": "trt"
         }
       ]
     },

@@ -1,10 +1,12 @@
 import * as actions from '../actions/index'
 
-export default function (state = [], action) {
+const initialState = {id: "", scales:[]} 
+
+export default function (state = initialState, action) {
     switch (action.type) {
         case actions.DELETE_SUBJECT: 
         {
-            return []
+            return initialState
         }
         case actions.SCALES_LOADED:    
         {

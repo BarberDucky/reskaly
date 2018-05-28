@@ -36,6 +36,23 @@ export function* watchScaleDelete() {
     yield takeLatest(actions.SCALE_DELETED, scaleDeleteSaga)
 }
 
+export function* cellAddSaga(action) {
+    let scales = action.payload.scales
+    scales.scales = scales.scales.map((element, index) => {
+        if (index === action.payload.scaleId) {
+            return [...element, {name: action.payload.cellId}]
+        } else {
+            return element
+        }
+    })
+    yield call(putScales, scales)
+    yield put(scalesLoaded(scales))
+}
+
+export function* watchCellAdd() {
+    yield takeLatest(actions.CELL_ADDED, cellAddSaga)
+}
+
 /*export function* boxUpdateSaga(action) {
     let selector = action.payload.selector
     selector.selector = selector.selector.map(element => {

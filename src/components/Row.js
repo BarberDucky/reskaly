@@ -34,7 +34,7 @@ class Row extends Component {
                 onDrop={(ev) => {
                     ev.preventDefault()
                     const selectorId = JSON.parse(ev.dataTransfer.getData('application/json'))
-                    this.props.add(selectorId, this.props.listId)
+                    this.props.add(selectorId, this.props.listId, this.props.scales)
                 }}>
                 {cells}
                 <div

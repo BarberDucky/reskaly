@@ -16,16 +16,6 @@ export default function (state = initialState, action) {
         {
             return {id: action.payload.id, scales:[...action.payload.scales]}
         }
-        case actions.CELL_ADDED:
-            {
-                return state.map((element, index) => {
-                    if (index === action.payload.scaleId) {
-                        return [...element, {name: action.payload.cellId, points: 0}]
-                    } else {
-                        return element
-                    }
-                })
-            }
         case actions.CELL_DELETED:
             {
                 return state.map((element, index) => {

@@ -30,10 +30,21 @@
       "scales": [
         [
           {
-            "name": "asd",
-            "max": "1",
-            "num": "5",
-            "part": "70"
+            "name": "asd"
+          },
+          {
+            "name": "asd"
+          },
+          {
+            "name": "asd"
+          }
+        ],
+        [
+          {
+            "name": "asd"
+          },
+          {
+            "name": "asd"
           }
         ]
       ]

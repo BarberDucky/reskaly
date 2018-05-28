@@ -106,12 +106,13 @@ export function scaleDeleted(scale, scales) {
     }
 }
 
-export function cellAdded(cellId, scaleId) {
+export function cellAdded(cellId, scaleId, scales) {
     return {
         type: CELL_ADDED,
         payload: {
             cellId: cellId,
-            scaleId: scaleId
+            scaleId: scaleId,
+            scales: scales
         }
     }
 }

@@ -12,11 +12,9 @@ class SideList extends Component {
                 key={`subject${index}`} 
                 listId={index} 
                 onClick={() => {
-                    this.props.select(index)
-                    this.props.selectorRequested(subject.name)
-                    this.props.scalesRequested(subject.name)
+                    this.props.select(subject.id)
                 }}
-                selected={this.props.selected === index}/>
+                selected={this.props.selected === subject.id}/>
         )
         return (
             <div className="sideList" style={{left: this.props.position}}>

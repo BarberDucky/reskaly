@@ -10,6 +10,10 @@ export default function (state = [], action) {
             {
                 return [...state, action.payload]
             }
+        case actions.DELETE_SUBJECT: 
+        {
+            return []
+        }
         case actions.BOX_UPDATE:
             {
                 return state.map((element, index) => {

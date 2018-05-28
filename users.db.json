@@ -1,28 +1,7 @@
 {
   "subjects": [],
-  "selectors": [
-    {
-      "id": "trt",
-      "selector": [
-        {
-          "name": "prt",
-          "part": 30
-        }
-      ]
-    }
-  ],
-  "scales": [
-    {
-      "id": "trt",
-      "scales": [
-        [
-          {
-            "name": "prt"
-          }
-        ]
-      ]
-    }
-  ],
+  "selectors": [],
+  "scales": [],
   "users": [
     {
       "id": "dare",

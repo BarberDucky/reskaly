@@ -45,10 +45,10 @@ export function userLoad(userData) {
     }
 }
 
-export function subjectSelected(subject) {
+export function subjectSelected(subjectId) {
     return {
         type: SUBJECT_SELECTED,
-        payload: subject
+        payload: subjectId
     }
 }
 
@@ -305,7 +305,7 @@ export function postSubject(user, subject) {
 }
 
 export function deleteSubject(user, subject) {
-    console.log(user, subject)
+    console.log('delete subject', user, subject)
     return {
         type: DELETE_SUBJECT,
         payload: {

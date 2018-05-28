@@ -26,8 +26,6 @@ class SelectorDialog extends Component {
                 this.props.updateSelector(this.props.selector)
             } else {
                 this.props.submit(box)
-                let subject = this.props.subjects[this.props.selectedSubject]
-                this.props.updateSubject({subject: {name: subject.name, selector: [...subject.selector, box]}, index: this.props.selectedSubject})
             }
         }
         return (

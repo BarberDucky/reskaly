@@ -2,6 +2,7 @@
 import {getSelector, getScales, putSelector} from '../../model/selector.service'
 import {all, call, fork, put, takeLatest} from 'redux-saga/effects'
 import { selectorLoaded, scalesLoaded, selectorUpdated } from '../actions';
+import * as actions from '../actions'
 
 export function* selectorSaga(action) {
     const data = yield call(getSelector, action.payload)
@@ -9,7 +10,7 @@ export function* selectorSaga(action) {
 }
 
 export function* watchSelector() {
-    yield takeLatest('SELECTOR_REQUESTED', selectorSaga)
+    yield takeLatest(actions.SUBJECT_SELECTED, selectorSaga)
 }
 
 export function* selectorUpdateSaga(action) {

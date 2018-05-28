@@ -4,20 +4,19 @@ export default function (state = -1, action) {
     switch (action.type) {
         case actions.SUBJECT_SELECTED:
             {
-                console.log(action.payload)
                 return action.payload
             }
         case actions.SUBJECT_DESELECTED:
             {
                 return state
             }
-        case actions.SUBJECT_DELETED:
+        case actions.DELETE_SUBJECT:
             {
-                return action.payload === state ? -1 : 0
+                return action.payload.subject.id === state ? -1 : state
             }
         case actions.SUBJECT_SUBMIT:
             {
-                return 0
+                return state
             }
         default:
             {

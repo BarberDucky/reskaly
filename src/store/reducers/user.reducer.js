@@ -4,15 +4,17 @@ export default function (state = null, action) {
     switch (action.type) {
         case actions.AUTH_SUCC:
             {
+                console.log('who')
                 return action.payload
             }
         case actions.UPDATE_USER:
-        {
-            return action.payload
-        }
-        default: 
-        {
-            return state
-        }
+            {
+                console.log('who')
+                return action.payload
+            }
+        default:
+            {
+                return state
+            }
     }
 }

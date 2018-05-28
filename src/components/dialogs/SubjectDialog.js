@@ -17,7 +17,7 @@ class SelectorDialog extends Component {
             }
             console.log(subject)
             if (this.props.index !== -1) {
-                this.props.update({ subject: subject, index: this.props.index })
+                //this.props.update({ subject: subject, index: this.props.index })
             } else {
                 this.props.post(this.props.user, subject)
             }

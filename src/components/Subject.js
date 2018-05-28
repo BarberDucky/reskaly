@@ -14,7 +14,7 @@ class Subject extends Component {
                     {this.props.name}
                 </label>
 
-                <div className="deleteBox" onClick={(ev) => {this.props.delete(this.props.user, {id: this.props.name}); ev.stopPropagation()}}>
+                <div className="deleteBox" onClick={(ev) => {ev.stopPropagation(); this.props.delete(this.props.user, {id: this.props.name})}}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>

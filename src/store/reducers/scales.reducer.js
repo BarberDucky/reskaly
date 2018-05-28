@@ -2,6 +2,10 @@ import * as actions from '../actions/index'
 
 export default function (state = [], action) {
     switch (action.type) {
+        case actions.DELETE_SUBJECT: 
+        {
+            return []
+        }
         case actions.SCALES_LOADED:    
         {
             return action.payload

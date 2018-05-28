@@ -16,8 +16,8 @@ class Cell extends Component {
                     className="deleteBox" 
                     onClick={(ev) => {
                         if (this.props.isModerator) {
-                            this.props.delete(this.props.listId, this.props.parentId, this.props.scales)
                             ev.stopPropagation()
+                            this.props.delete(this.props.listId, this.props.parentId, this.props.scales)
                         }
                     }}>
                     <img src="/img/delete.png" alt="Delete button" />

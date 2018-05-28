@@ -18,7 +18,7 @@ class SelectorCell extends Component {
                     onClick={(ev) => {
                         if (this.props.isModerator) {
                             this.props.updateCells(this.props.lowerText)
-                            this.props.delete(this.props.lowerText, this.props.selector)
+                            this.props.delete(this.props.lowerText, this.props.selector, this.props.scales)
                             ev.stopPropagation()}
                         }
                     }>
@@ -32,6 +32,7 @@ class SelectorCell extends Component {
 function mapStateToProps (state) {
     return {
         selector: state.selector,
+        scales: state.scales,
         isModerator: state.user.isModerator
     }
 }

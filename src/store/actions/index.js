@@ -166,13 +166,13 @@ export function boxSelected(box) {
     }
 }
 
-export function boxDeleted(name, selector) {
-    console.log('for delete', name, selector)
+export function boxDeleted(name, selector, scales) {
     return {
         type: BOX_DELETED,
         payload: {
             name: name,
-            selector: selector
+            selector: selector,
+            scales: scales
         }
     }
 }

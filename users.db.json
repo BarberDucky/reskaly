@@ -1,62 +1,13 @@
 {
-  "subjects": [
-    {
-      "id": "asd"
-    },
-    {
-      "id": "trt"
-    }
-  ],
-  "selectors": [
-    {
-      "id": "asd",
-      "selector": [
-        {
-          "name": "asd",
-          "max": "1",
-          "num": "5",
-          "part": "70"
-        }
-      ]
-    },
-    {
-      "id": "trt",
-      "selector": []
-    }
-  ],
-  "scales": [
-    {
-      "id": "asd",
-      "scales": [
-        [
-          {
-            "name": "asd"
-          },
-          {
-            "name": "asd"
-          }
-        ],
-        []
-      ]
-    },
-    {
-      "id": "trt",
-      "scales": []
-    }
-  ],
+  "subjects": [],
+  "selectors": [],
+  "scales": [],
   "users": [
     {
       "id": "dare",
       "password": "asd",
       "isModerator": true,
-      "subjects": [
-        {
-          "id": "asd"
-        },
-        {
-          "id": "trt"
-        }
-      ]
+      "subjects": []
     },
     {
       "id": "damjan",

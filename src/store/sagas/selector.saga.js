@@ -3,6 +3,7 @@ import {getSelector, putSelector} from '../../model/selector.service'
 import {call, put, takeLatest} from 'redux-saga/effects'
 import { selectorLoaded} from '../actions';
 import * as actions from '../actions'
+import { putScales } from '../../model/scales.service';
 
 export function* selectorSaga(action) {
     const data = yield call(getSelector, action.payload)
@@ -28,6 +29,15 @@ export function* watchBoxAdd() {
 export function* boxDeleteSaga(action) {
     let selector = action.payload.selector
     selector.selector = selector.selector.filter(element => element.name !== action.payload.name)
+
+    let scales = action.payload.scales
+    scales.scales = scales.scales.map((element, index) => {
+            return element.filter(element => element.name !== action.payload.name)
+    })
+
+    yield call(putScales, scales)
+    yield put(actions.scalesLoaded(scales))
+
     yield call(putSelector, selector)
     yield put(selectorLoaded(selector))
 }

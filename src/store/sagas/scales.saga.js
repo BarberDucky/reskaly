@@ -54,7 +54,6 @@ export function* watchCellAdd() {
 }
 
 export function* cellDeleteSaga(action) {
-    console.log('uslo u delete', action)
     let scales = action.payload.scales
     scales.scales = scales.scales.map((element, index) => {
         if (index === action.payload.scaleId) {

@@ -16,27 +16,6 @@ export default function (state = initialState, action) {
         {
             return {id: action.payload.id, scales:[...action.payload.scales]}
         }
-        case actions.CELL_UPDATED:
-            {
-                if (action.payload.newId) {
-                    let newState =  state.map(array => {
-                        return array.map(element => {
-                            if (element.name === action.payload.oldId) {
-                                return {name: action.payload.newId, points: 0}
-                            } else {
-                                return element
-                            }
-                        })
-                    })
-                    console.log(newState)
-                    return newState
-                } else {
-                    console.log(state)
-                    return state.map(array => {
-                        return array.filter(element => element.name !== action.payload.oldId)
-                    })
-                }
-            }
         case actions.CELL_SUBMIT:
             {
                 return state.map(array => {

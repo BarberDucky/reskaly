@@ -10,7 +10,14 @@
   "selectors": [
     {
       "id": "asd",
-      "selector": []
+      "selector": [
+        {
+          "name": "asdsa",
+          "max": "91",
+          "num": "5",
+          "part": "45"
+        }
+      ]
     },
     {
       "id": "trt",

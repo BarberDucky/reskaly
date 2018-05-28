@@ -1,6 +1,6 @@
 import {all, fork} from 'redux-saga/effects'
 import {watchScales} from './scales.saga'
-import {watchSelector, watchBoxAdd, watchBoxDelete} from './selector.saga'
+import {watchSelector, watchBoxAdd, watchBoxDelete, watchBoxUpdate} from './selector.saga'
 import { watchAuthSaga } from './auth.saga';
 import { watchRegSaga } from './reg.saga';
 import { watchNewSubject, watchRemoveSubject } from './subjects.saga';
@@ -11,6 +11,7 @@ export default function* root() {
         fork(watchSelector),
         fork(watchBoxAdd),
         fork(watchBoxDelete),
+        fork(watchBoxUpdate),
         fork(watchAuthSaga),
         fork(watchRegSaga),
         fork(watchNewSubject),

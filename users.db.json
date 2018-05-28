@@ -13,9 +13,9 @@
       "selector": [
         {
           "name": "asd",
-          "max": "90",
+          "max": "1",
           "num": "5",
-          "part": "80"
+          "part": "70"
         }
       ]
     },
@@ -27,7 +27,16 @@
   "scales": [
     {
       "id": "asd",
-      "scales": []
+      "scales": [
+        [
+          {
+            "name": "asd",
+            "max": "1",
+            "num": "5",
+            "part": "70"
+          }
+        ]
+      ]
     },
     {
       "id": "trt",

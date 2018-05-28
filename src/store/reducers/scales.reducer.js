@@ -8,6 +8,10 @@ export default function (state = initialState, action) {
         {
             return initialState
         }
+        case actions.SUBJECT_DESELECTED: 
+        {
+            return initialState
+        }
         case actions.SCALES_LOADED:    
         {
             return {id: action.payload.id, scales:[...action.payload.scales]}

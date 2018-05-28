@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { subjectSubmit, subjectSelected, subjectAdded, selectorRequested, scalesRequested} from '../store/actions/index'
+import { subjectSubmit, subjectSelected, subjectAdded, selectorRequested, scalesRequested, subjectDeselected} from '../store/actions/index'
 import Subject from './Subject'
 import SubjectDialog from './dialogs/SubjectDialog'
 class SideList extends Component {
@@ -12,6 +12,7 @@ class SideList extends Component {
                 key={`subject${index}`} 
                 listId={index} 
                 onClick={() => {
+                    this.props.deselect()
                     this.props.select(subject.id)
                 }}
                 selected={this.props.selected === subject.id}/>
@@ -38,6 +39,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         submit: subjectSubmit,
         select: subjectSelected,
+        deselect: subjectDeselected,
         add: subjectAdded,
         selectorRequested: selectorRequested,
         scalesRequested: scalesRequested

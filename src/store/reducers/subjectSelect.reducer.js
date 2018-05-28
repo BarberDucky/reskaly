@@ -8,7 +8,7 @@ export default function (state = -1, action) {
             }
         case actions.SUBJECT_DESELECTED:
             {
-                return state
+                return -1
             }
         case actions.DELETE_SUBJECT:
             {

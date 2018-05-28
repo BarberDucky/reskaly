@@ -66,10 +66,9 @@ export function subjectAdded(subject) {
     }
 }
 
-export function subjectDeselected(subject) {
+export function subjectDeselected() {
     return {
-        type: SUBJECT_DESELECTED,
-        payload: subject
+        type: SUBJECT_DESELECTED
     }
 }
 

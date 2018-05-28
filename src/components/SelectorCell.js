@@ -16,12 +16,11 @@ class SelectorCell extends Component {
                 <div 
                     className="deleteBox"
                     onClick={(ev) => {
-                        if (this.props.isModerator) {
                             this.props.updateCells(this.props.lowerText)
                             this.props.delete(this.props.lowerText, this.props.selector, this.props.scales)
                             ev.stopPropagation()}
-                        }
-                    }>
+                    }
+                    hidden={!this.props.isModerator}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>

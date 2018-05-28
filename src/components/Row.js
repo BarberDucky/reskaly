@@ -40,11 +40,10 @@ class Row extends Component {
                 <div
                     className="deleteBox"
                     onClick={(ev) => {
-                        if (this.props.isModerator) {
                             this.props.delete(this.props.listId, this.props.scales)
                             ev.stopPropagation()
-                        }
-                    }}>
+                    }}
+                    hidden={!this.props.isModerator}>
                     <img src="/img/delete.png" alt="Delete button" />
                 </div>
             </div>

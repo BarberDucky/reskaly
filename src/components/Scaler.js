@@ -19,7 +19,7 @@ class Scaler extends Component {
                 <button 
                     hidden={!this.props.isModerator || this.props.subjectSelected === -1}
                     className='scaleAddButton'
-                    onClick={() => this.props.add({})}>+</button>
+                    onClick={() => this.props.add([], this.props.scales)}>+</button>
             </div>
         )
     }

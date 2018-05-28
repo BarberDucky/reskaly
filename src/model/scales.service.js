@@ -15,6 +15,16 @@ export const postScales = async (id) => {
     })
 }
 
+export const putScales = async (newScales) => {
+    await fetch(`http://localhost:3001/scales/${newScales.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(newScales),
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    })
+}
+
 export const deleteScales = async (id) => {
      await fetch(`http://localhost:3001/scales/${id}`, {
         method: 'DELETE'

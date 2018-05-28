@@ -87,17 +87,23 @@ export function subjectSubmit(subject) {
     }
 }
 
-export function scaleAdded(scale) {
+export function scaleAdded(scale, scales) {
     return {
         type: SCALE_ADDED,
-        payload: scale
+        payload: {
+            scale: scale,
+            scales: scales
+        }
     }
 }
 
-export function scaleDeleted(scale) {
+export function scaleDeleted(scale, scales) {
     return {
         type: SCALE_DELETED,
-        payload: scale
+        payload: {
+            scale: scale,
+            scales: scales
+        }
     }
 }
 

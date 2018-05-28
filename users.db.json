@@ -2,6 +2,9 @@
   "subjects": [
     {
       "id": "asd"
+    },
+    {
+      "id": "trt"
     }
   ],
   "selectors": [
@@ -15,18 +18,20 @@
           "part": "80"
         }
       ]
+    },
+    {
+      "id": "trt",
+      "selector": []
     }
   ],
   "scales": [
     {
       "id": "asd",
-      "scales": [
-        [
-          {
-            "name": "asd"
-          }
-        ]
-      ]
+      "scales": []
+    },
+    {
+      "id": "trt",
+      "scales": []
     }
   ],
   "users": [
@@ -37,6 +42,9 @@
       "subjects": [
         {
           "id": "asd"
+        },
+        {
+          "id": "trt"
         }
       ]
     },

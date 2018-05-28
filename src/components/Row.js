@@ -41,7 +41,7 @@ class Row extends Component {
                     className="deleteBox"
                     onClick={(ev) => {
                         if (this.props.isModerator) {
-                            this.props.delete(this.props.listId)
+                            this.props.delete(this.props.listId, this.props.scales)
                             ev.stopPropagation()
                         }
                     }}>

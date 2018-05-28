@@ -10,16 +10,8 @@ export default function (state = initialState, action) {
         }
         case actions.SCALES_LOADED:    
         {
-            return action.payload
+            return {id: action.payload.id, scales:[...action.payload.scales]}
         }
-        case actions.SCALE_ADDED:
-            {
-                return [...state, []]
-            }
-        case actions.SCALE_DELETED:
-            {
-                return state.filter((element, index) => index !== action.payload)
-            }
         case actions.CELL_ADDED:
             {
                 return state.map((element, index) => {
